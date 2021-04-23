@@ -1,0 +1,11 @@
+main: de.warsteiner.ultimatejobs.UltimateJobs
+version: SNAPv1
+name: UltimateJobs
+author: Warsteiner37 
+website: ultimate-systems.org
+api-version: 1.13
+ 
+commands:  
+  Jobs:
+    aliases: [job, work]
+     
