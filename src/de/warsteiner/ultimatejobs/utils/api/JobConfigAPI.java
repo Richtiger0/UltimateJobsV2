@@ -4,17 +4,64 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.bukkit.Bukkit;
+ 
 import org.bukkit.configuration.InvalidConfigurationException;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.scheduler.BukkitRunnable;
 
 import de.warsteiner.ultimatejobs.UltimateJobs;
 import de.warsteiner.ultimatejobs.utils.Action;
+import net.md_5.bungee.api.ChatColor;
  
 public class JobConfigAPI {
 	
+	public int getSlotOfJob(String id) {
+		YamlConfiguration config = getConfigOfJob(id);
+		
+		int price  = config.getInt("Slot");
+
+		return price;
+	}
+	
+	public double getJobPrice(String id) {
+		YamlConfiguration config = getConfigOfJob(id);
+		
+		double price  = config.getDouble("Price");
+
+		return price;
+	}
+	
+	public String getJobDisplay(String id) {
+		YamlConfiguration config = getConfigOfJob(id);
+		
+		if( config.getString("Display") == null) {
+			 UltimateJobs.getPlugin().getLogger().warning("§cThe option §aCONFIG.GET(DISPLAY) §cdoesnt exist in config of: §a"+id);
+				 
+		}
+		
+		String name = config.getString("Display").replaceAll("&", "§");
+		
+		String finalname =  toHex(name);
+		
+		return finalname;
+	}
+	
+	private static final Pattern pattern = Pattern.compile("(?<!\\\\)(#[a-fA-F0-9]{6})");
+
+    public static String toHex(String motd) {
+        Matcher matcher = pattern.matcher(motd);
+        while (matcher.find()) {
+            String color = motd.substring(matcher.start(), matcher.end());
+            motd = motd.replace(color, "" + ChatColor.of(color));
+        }
+
+        return motd;
+    }
+    
 	public ArrayList<String> getJobsWithAction(Action at) {
 		
 		ArrayList<String> list = new ArrayList<String>();

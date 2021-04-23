@@ -11,7 +11,7 @@ public class PlayerBreakBlockEvent implements Listener {
 
 	@EventHandler
 	public void onBreak(BlockBreakEvent event) {
-		event.getPlayer().sendMessage("henlo §b"+UltimateJobs.getAPI().getJobsWithAction(Action.BREAK));
+		event.getPlayer().sendMessage("henlo "+UltimateJobs.getAPI().getJobDisplay("Miner"));
 		 
 	}
 	
