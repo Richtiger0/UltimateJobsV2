@@ -39,8 +39,7 @@ public class UltimateJobs extends JavaPlugin {
 		api = new JobConfigAPI();
 		builder = new GuiBuilder();
 		player = new PlayerAPI();
-        data = new PlayerJobDataFile();
-         
+      
 		//we create the jobs folder
         File file = new File(getPlugin().getDataFolder()+"/jobs/");
         file.mkdir();
@@ -93,7 +92,8 @@ public class UltimateJobs extends JavaPlugin {
             e.printStackTrace();
         }
 		    
-        //load
+        //load data files
+        data = new PlayerJobDataFile();
         data.create();
         
 	     Bukkit.getPluginManager().registerEvents(new PlayerBreakBlockEvent(), this);

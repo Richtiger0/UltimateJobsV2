@@ -13,6 +13,12 @@
 #where you want to save the data
 Save_Files: "plugins/UltimateJobs/data"
 
+#
+# Use -1 for unlimited jobs
+# 1 means, the player can have 1 job per time
+# 
+MaxJobsDefault: 1
+
 Format_Money: "0.00"
   
 Format_Exp: "0.00"

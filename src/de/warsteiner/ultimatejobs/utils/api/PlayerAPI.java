@@ -15,6 +15,7 @@ public class PlayerAPI {
 		
 		cl.get().set("Player."+uuid+".CurrentJob", list);
 		cl.get().set("Player."+uuid+".OwnsJob", list);
+		cl.get().set("Player."+uuid+".MaxJobs", UltimateJobs.getMainConfig().getInt("MaxJobsDefault"));
 		
 		cl.save(); 
 	}

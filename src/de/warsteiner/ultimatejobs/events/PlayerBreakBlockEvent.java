@@ -10,9 +10,7 @@ import de.warsteiner.ultimatejobs.utils.Action;
 public class PlayerBreakBlockEvent implements Listener {
 
 	@EventHandler
-	public void onBreak(BlockBreakEvent event) {
-		event.getPlayer().sendMessage("henlo "+UltimateJobs.getAPI().getJobDisplay("Miner"));
-		 
+	public void onBreak(BlockBreakEvent event) { 
 	}
 	
 }
