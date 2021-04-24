@@ -27,7 +27,7 @@ public class UltimateJobs extends JavaPlugin {
 	private static YamlConfiguration jobsgui;
 	private static YamlConfiguration main;
 	private static PlayerAPI player;
-	
+ 
 	@Override
 	public void onEnable() {
 		
