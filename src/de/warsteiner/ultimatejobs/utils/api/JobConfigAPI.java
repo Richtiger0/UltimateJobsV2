@@ -35,6 +35,31 @@ public class JobConfigAPI {
 		return price;
 	}
 	
+	public String getJobMaterial(String id) {
+		YamlConfiguration config = getConfigOfJob(id);
+ 
+		String mat = config.getString("Material");
+ 
+		return mat;
+	}
+	
+	public List<String> getLoreOfJob(String id) {
+		
+		//check if player has job and check if player is in job
+		
+		List<String> lore = UltimateJobs.getJobsGUIConfig().getStringList("");
+ 
+		return lore;
+	}
+	
+	public List<String> getItemFlags(String id) {
+		YamlConfiguration config = getConfigOfJob(id);
+ 
+		List<String> lore = config.getStringList("ItemFlag");
+ 
+		return lore;
+	}
+	
 	public String getJobDisplay(String id) {
 		YamlConfiguration config = getConfigOfJob(id);
 		

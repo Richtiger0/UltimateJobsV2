@@ -14,16 +14,16 @@ public class PlayerJobCommand implements CommandExecutor {
 	public boolean onCommand(CommandSender s, Command arg1, String arg2, String[] args) {
 		Player p = (Player) s;
 		
-		int lenth = args.length;
+		int length = args.length;
 		
 		UltimateJobs plugin = UltimateJobs.getPlugin();
 		
-		if(lenth == 0) { 
-			
+		if(length == 0) { 
 			String name = plugin.getJobsGUIConfig().getString("Name").replaceAll("&", "§");
 			int size = plugin.getJobsGUIConfig().getInt("Size");
 			 
 			p.openInventory(UltimateJobs.getBuilder().createGui(p, 9*size, plugin.getAPI().toHex(name)));
+			plugin.getBuilder().setJobsItems(p.getOpenInventory(), p);
 		}
 		
 		return false;
