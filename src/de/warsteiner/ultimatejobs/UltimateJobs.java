@@ -12,7 +12,9 @@ import org.bukkit.plugin.java.JavaPlugin;
 import de.warsteiner.ultimatejobs.command.PlayerJobCommand; 
 import de.warsteiner.ultimatejobs.events.PlayerBreakBlockEvent;
 import de.warsteiner.ultimatejobs.utils.api.JobConfigAPI;
+import de.warsteiner.ultimatejobs.utils.api.PlayerAPI;
 import de.warsteiner.ultimatejobs.utils.builder.GuiBuilder;
+import de.warsteiner.ultimatejobs.utils.data.PlayerJobDataFile; 
 
  
 public class UltimateJobs extends JavaPlugin {
@@ -23,6 +25,8 @@ public class UltimateJobs extends JavaPlugin {
 	private static JobConfigAPI api;
 	private static GuiBuilder builder;
 	private static YamlConfiguration jobsgui;
+	private static YamlConfiguration main;
+	private static PlayerAPI player;
 	
 	@Override
 	public void onEnable() {
@@ -32,7 +36,7 @@ public class UltimateJobs extends JavaPlugin {
 		//create classes & load
 		api = new JobConfigAPI();
 		builder = new GuiBuilder();
-		
+		player = new PlayerAPI();
  
 		//we create the jobs folder
         File file = new File(getPlugin().getDataFolder()+"/jobs/");
@@ -44,34 +48,51 @@ public class UltimateJobs extends JavaPlugin {
         //create custom configs
 	    File joblist;
 	    File jobgui;
+	    File mainfile;
 	 
 		joblist = new File(UltimateJobs.getPlugin().getDataFolder(), "Jobs.yml");
 		jobgui = new File(UltimateJobs.getPlugin().getDataFolder(), "JobsGUI.yml");
+		mainfile = new File(UltimateJobs.getPlugin().getDataFolder(), "Main.yml");
 		
-		        if (!joblist.exists()) {
-		        	joblist.getParentFile().mkdirs();
-		            UltimateJobs.getPlugin(). saveResource("Jobs.yml", false);
-		         }
+        if (!mainfile.exists()) {
+        	mainfile.getParentFile().mkdirs();
+            UltimateJobs.getPlugin(). saveResource("Main.yml", false);
+         }
 
-		        jl= new YamlConfiguration();
-		        try {
-		        	jl.load(joblist);
-		        } catch (IOException | InvalidConfigurationException e) {
-		            e.printStackTrace();
-		        }
+        main= new YamlConfiguration();
+        try {
+        	main.load(mainfile);
+        } catch (IOException | InvalidConfigurationException e) {
+            e.printStackTrace();
+        }
+		
+        if (!joblist.exists()) {
+        	joblist.getParentFile().mkdirs();
+            UltimateJobs.getPlugin(). saveResource("Jobs.yml", false);
+         }
+
+        jl= new YamlConfiguration();
+        try {
+        	jl.load(joblist);
+        } catch (IOException | InvalidConfigurationException e) {
+            e.printStackTrace();
+        }
 		        
-		        if (!jobgui.exists()) {
-		        	jobgui.getParentFile().mkdirs();
-		            UltimateJobs.getPlugin(). saveResource("JobsGUI.yml", false);
-		         }
+        if (!jobgui.exists()) {
+        	jobgui.getParentFile().mkdirs();
+            UltimateJobs.getPlugin(). saveResource("JobsGUI.yml", false);
+         }
 
-		        jobsgui= new YamlConfiguration();
-		        try {
-		        	jobsgui.load(jobgui);
-		        } catch (IOException | InvalidConfigurationException e) {
-		            e.printStackTrace();
-		        }
+        jobsgui= new YamlConfiguration();
+        try {
+        	jobsgui.load(jobgui);
+        } catch (IOException | InvalidConfigurationException e) {
+            e.printStackTrace();
+        }
 		    
+        //create data files
+      	new PlayerJobDataFile().create();
+        
 	     Bukkit.getPluginManager().registerEvents(new PlayerBreakBlockEvent(), this);
 	     
 	     getCommand("jobs").setExecutor(new PlayerJobCommand());
@@ -91,6 +112,14 @@ public class UltimateJobs extends JavaPlugin {
 	
 	public static JobConfigAPI getAPI() {
 		return api;
+	}
+	
+	public static PlayerAPI getPlayerAPI() {
+		return player;
+	}
+	
+	public static YamlConfiguration getMainConfig() {
+		return main;
 	}
 	
 	public static GuiBuilder getBuilder() {

@@ -13,3 +13,29 @@
 Name: "#14FFAAJobs"
 
 Size: 6
+
+Lore_InJob:
+  - "&7"
+  - "&7Status&8: &a&l✓"
+  - "&7Level&8: &c<level>"
+  - "&7Progress&8: &c<exp>&8/&c<need> &7(&a<pr>%&7)"
+  - "&7"
+  - "&7Left-Click&8: &6Leave Job"
+  - "&7Right-Click&8: &eShow Details"
+  
+Lore_Bought:
+  - "&7"
+  - "&7Status&8: &a&l✓"
+  - "&7Level&8: &c<level>"
+  - "&7Progress&8: &c<exp>&8/&c<need> &7(&a<pr>%&7)"
+  - "&7"
+  - "&7Left-Click&8: &6Join Job"
+  - "&7Right-Click&8: &eShow Details"
+  
+Lore_Need:
+  - "&7"
+  - "&7Status&8: &c&l✘"
+  - "&7Price&8: &c<price>" 
+  - "&7"
+  - "&7Left-Click&8: &6Buy Job"
+  - "&7Right-Click&8: &eShow Details"
