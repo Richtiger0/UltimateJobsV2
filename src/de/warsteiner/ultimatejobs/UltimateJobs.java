@@ -11,6 +11,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import de.warsteiner.ultimatejobs.command.PlayerJobCommand; 
 import de.warsteiner.ultimatejobs.events.PlayerBreakBlockEvent;
+import de.warsteiner.ultimatejobs.events.PlayerExistEvent;
 import de.warsteiner.ultimatejobs.utils.api.JobConfigAPI;
 import de.warsteiner.ultimatejobs.utils.api.PlayerAPI;
 import de.warsteiner.ultimatejobs.utils.builder.GuiBuilder;
@@ -27,6 +28,7 @@ public class UltimateJobs extends JavaPlugin {
 	private static YamlConfiguration jobsgui;
 	private static YamlConfiguration main;
 	private static PlayerAPI player;
+	private static PlayerJobDataFile data;
  
 	@Override
 	public void onEnable() {
@@ -37,7 +39,8 @@ public class UltimateJobs extends JavaPlugin {
 		api = new JobConfigAPI();
 		builder = new GuiBuilder();
 		player = new PlayerAPI();
- 
+        data = new PlayerJobDataFile();
+         
 		//we create the jobs folder
         File file = new File(getPlugin().getDataFolder()+"/jobs/");
         file.mkdir();
@@ -90,10 +93,11 @@ public class UltimateJobs extends JavaPlugin {
             e.printStackTrace();
         }
 		    
-        //create data files
-      	new PlayerJobDataFile().create();
+        //load
+        data.create();
         
 	     Bukkit.getPluginManager().registerEvents(new PlayerBreakBlockEvent(), this);
+	     Bukkit.getPluginManager().registerEvents(new PlayerExistEvent(), this);
 	     
 	     getCommand("jobs").setExecutor(new PlayerJobCommand());
 	      
@@ -112,6 +116,10 @@ public class UltimateJobs extends JavaPlugin {
 	
 	public static JobConfigAPI getAPI() {
 		return api;
+	}
+	 
+	public static PlayerJobDataFile getPlayerDataFile() {
+		return data;
 	}
 	
 	public static PlayerAPI getPlayerAPI() {

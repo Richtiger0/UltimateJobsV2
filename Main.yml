@@ -11,7 +11,7 @@
 # '----------------'  '----------------'  '----------------'  '----------------' 
 
 #where you want to save the data
-Save_Files: "plugins/UltimateJobs/data/"
+Save_Files: "plugins/UltimateJobs/data"
 
 Format_Money: "0.00"
   

@@ -8,7 +8,7 @@ import de.warsteiner.ultimatejobs.utils.data.PlayerJobDataFile;
 public class PlayerAPI {
 	
 	public void createPlayer(String uuid) {
-		PlayerJobDataFile cl = new PlayerJobDataFile();
+		PlayerJobDataFile cl = UltimateJobs.getPlayerDataFile();
 		ArrayList<String> list = new ArrayList<String>();
 		
 		cl.load();
@@ -20,7 +20,7 @@ public class PlayerAPI {
 	}
 	
 	public boolean existPlayer(String uuid) {
-		PlayerJobDataFile cl = new PlayerJobDataFile();
+		PlayerJobDataFile cl = UltimateJobs.getPlayerDataFile();
 		cl.load();
 		return cl.get().contains("Player."+uuid+".CurrentJob");
 	}
