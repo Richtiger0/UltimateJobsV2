@@ -14,14 +14,16 @@ Name: "#14FFAAJobs"
 
 Size: 6
 
+# Use "CLOSE", or "REOPEN"
+Jobs_UpdateMode: "REOPEN"
+
 Lore_InJob:
   - "&7"
   - "&7Status&8: &a&l✓"
   - "&7Level&8: &c<level>"
   - "&7Progress&8: &c<exp>&8/&c<need> &7(&a<pr>%&7)"
   - "&7"
-  - "&7Left-Click&8: &6Leave Job"
-  - "&7Right-Click&8: &eShow Details"
+  - "&7Click&8: &eShow Details"
   
 Lore_Bought:
   - "&7"
@@ -29,13 +31,122 @@ Lore_Bought:
   - "&7Level&8: &c<level>"
   - "&7Progress&8: &c<exp>&8/&c<need> &7(&a<pr>%&7)"
   - "&7"
-  - "&7Left-Click&8: &6Join Job"
-  - "&7Right-Click&8: &eShow Details"
+  - "&7Click&8: &aJoin Job"
   
-Lore_Need:
+Lore_Need: 
   - "&7"
   - "&7Status&8: &c&l✘"
-  - "&7Price&8: &c<price>" 
+  - "&7Price&8: &a<price>" 
   - "&7"
-  - "&7Left-Click&8: &6Buy Job"
-  - "&7Right-Click&8: &eShow Details"
+  - "&7Click&8: &6Buy Job" 
+
+Custom_Items_Used:
+  - "Profile"
+  - "Leave"
+  
+Custom_Items:
+
+  Leave:
+  
+    Display: "&cLeave all Jobs"
+    
+    Icon: "BARRIER"
+    
+    Show_Only_If_InJob: true
+    
+    Enchanted: false
+    
+    Action: "LEAVE"
+    
+    ItemFlags:
+      - "HIDE_ATTRIBUTES"
+      - "HIDE_ENCHANTS"
+    
+    Slot: 49
+  
+  Profile:
+  
+    Display: "&bInfo"
+    
+    Icon: "<skull>"
+    
+    Show_Only_If_InJob: false
+    
+    Enchanted: false
+    
+    Action: "NONE"
+    
+    ItemFlags:
+      - "HIDE_ATTRIBUTES"
+      - "HIDE_ENCHANTS"
+    
+    Slot: 4
+    
+    Lore:
+      - "&7"
+      - "&7Select a &aJob &7by clicking on an icon."
+      - "&7You are currently in &e<jobs> &7Jobs!"
+  
+PlaceHolders:
+  - "BLACK_STAINED_GLASS_PANE:0:&7" 
+  - "BLACK_STAINED_GLASS_PANE:1:&7"  
+  - "BLACK_STAINED_GLASS_PANE:7:&7"  
+  - "BLACK_STAINED_GLASS_PANE:8:&7"  
+  - "BLACK_STAINED_GLASS_PANE:9:&7"  
+  - "BLACK_STAINED_GLASS_PANE:17:&7"  
+  - "BLACK_STAINED_GLASS_PANE:45:&7"  
+  - "BLACK_STAINED_GLASS_PANE:46:&7"   
+  - "BLACK_STAINED_GLASS_PANE:44:&7" 
+  - "BLACK_STAINED_GLASS_PANE:36:&7" 
+  - "BLACK_STAINED_GLASS_PANE:52:&7"  
+  - "BLACK_STAINED_GLASS_PANE:53:&7" 
+  
+# .----------------.  .----------------.  .----------------.  .----------------.  .----------------.  .-----------------. .----------------.  .----------------.  .----------------.  .----------------. 
+#| .--------------. || .--------------. || .--------------. || .--------------. || .--------------. || .--------------. || .--------------. || .--------------. || .--------------. || .--------------. |
+#| |     ____     | || |   ______     | || |  _________   | || |     _____    | || |     ____     | || | ____  _____  | || |    _______   | || |    ______    | || | _____  _____ | || |     _____    | |
+#| |   .'    `.   | || |  |_   __ \   | || | |  _   _  |  | || |    |_   _|   | || |   .'    `.   | || ||_   \|_   _| | || |   /  ___  |  | || |  .' ___  |   | || ||_   _||_   _|| || |    |_   _|   | |
+#| |  /  .--.  \  | || |    | |__) |  | || | |_/ | | \_|  | || |      | |     | || |  /  .--.  \  | || |  |   \ | |   | || |  |  (__ \_|  | || | / .'   \_|   | || |  | |    | |  | || |      | |     | |
+#| |  | |    | |  | || |    |  ___/   | || |     | |      | || |      | |     | || |  | |    | |  | || |  | |\ \| |   | || |   '.___`-.   | || | | |    ____  | || |  | '    ' |  | || |      | |     | |
+#| |  \  `--'  /  | || |   _| |_      | || |    _| |_     | || |     _| |_    | || |  \  `--'  /  | || | _| |_\   |_  | || |  |`\____) |  | || | \ `.___]  _| | || |   \ `--' /   | || |     _| |_    | |
+#| |   `.____.'   | || |  |_____|     | || |   |_____|    | || |    |_____|   | || |   `.____.'   | || ||_____|\____| | || |  |_______.'  | || |  `._____.'   | || |    `.__.'    | || |    |_____|   | |
+#| |              | || |              | || |              | || |              | || |              | || |              | || |              | || |              | || |              | || |              | |
+#| '--------------' || '--------------' || '--------------' || '--------------' || '--------------' || '--------------' || '--------------' || '--------------' || '--------------' || '--------------' |
+# '----------------'  '----------------'  '----------------'  '----------------'  '----------------'  '----------------'  '----------------'  '----------------'  '----------------'  '----------------' 
+
+# 
+# which one you want to use?
+#
+# "OPTIONS" means, a extra gui, for joining, leaving or show details of the job
+# "LEAVE" means, you click, and you  leave the job
+#
+ActionOnClick: "OPTIONS"
+
+Options_Name: "#14FFAAJobs"
+
+Options_Size: 3
+ 
+Options_Custom_Items_Used: 
+  - "Back"
+  
+Options_Custom_Items:
+
+  Back:
+  
+    Display: "&cLeave all Jobs"
+    
+    Icon: "BARRIER"
+    
+    Show_Only_If_InJob: true
+    
+    Enchanted: false
+    
+    Action: "LEAVE"
+    
+    ItemFlags:
+      - "HIDE_ATTRIBUTES"
+      - "HIDE_ENCHANTS"
+    
+    Slot: 2
+ 
+Options_PlaceHolders:
+  - "BLACK_STAINED_GLASS_PANE:0:&7"  

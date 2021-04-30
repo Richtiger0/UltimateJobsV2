@@ -4,6 +4,7 @@ name: UltimateJobs
 author: Warsteiner37 
 website: ultimate-systems.org
 api-version: 1.13
+depend: [Vault]
  
 commands:  
   Jobs:

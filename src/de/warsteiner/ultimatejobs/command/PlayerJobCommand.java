@@ -24,6 +24,8 @@ public class PlayerJobCommand implements CommandExecutor {
 			 
 			p.openInventory(UltimateJobs.getBuilder().createGui(p, 9*size, plugin.getAPI().toHex(name)));
 			plugin.getBuilder().setJobsItems(p.getOpenInventory(), p);
+			plugin.getBuilder().setPlaceHolderItems(p.getOpenInventory(), p, plugin.getJobsGUIConfig().getStringList("PlaceHolders"));
+			plugin.getBuilder().setCustomItemsInInventory(p.getOpenInventory(), p, plugin.getJobsGUIConfig(), "Custom_Items");
 		}
 		
 		return false;
