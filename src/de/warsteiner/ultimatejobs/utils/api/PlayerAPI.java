@@ -28,13 +28,75 @@ public class PlayerAPI {
 		cl.load();
  
 		cl.get().set("Job."+uuid+".ID."+job+".Level", 1);
-		cl.get().set("Job."+uuid+".ID."+job+".Exp", 1);
+		cl.get().set("Job."+uuid+".ID."+job+".Exp", 0);
 		cl.get().set("Job."+uuid+".ID."+job+".Count1", 0);
 		cl.get().set("Job."+uuid+".ID."+job+".Count2", 0);
 		cl.get().set("Job."+uuid+".ID."+job+".Count3", 0);
 		cl.get().set("Job."+uuid+".ID."+job+".Count4", 0);
 		cl.get().set("Job."+uuid+".ID."+job+".Count5", 0);
 		cl.save(); 
+	}
+	
+	public double getJobExp(String uuid, String job) {
+		PlayerJobDataFile cl = UltimateJobs.getPlayerDataFile(); 
+		cl.load(); 
+		return cl.get().getDouble("Job."+uuid+".ID."+job+".Exp");
+	}
+	
+	public void setJobExp(String uuid, String job, int exp) {
+		PlayerJobDataFile cl = UltimateJobs.getPlayerDataFile();
+		cl.load();
+		cl.get().set("Job."+uuid+".ID."+job+".Exp", exp); 
+		cl.save(); 
+	}
+	
+	public void addJobExp(String uuid, String job, int exp) {
+		PlayerJobDataFile cl = UltimateJobs.getPlayerDataFile();
+		cl.load();
+		
+		int old = getJobLevel(uuid, job);
+		
+		setJobExp(uuid, job, old + exp);
+	}
+	
+	public void remJobExp(String uuid, String job, int exp) {
+		PlayerJobDataFile cl = UltimateJobs.getPlayerDataFile();
+		cl.load();
+		
+		int old = getJobLevel(uuid, job);
+		
+		setJobExp(uuid, job, old - exp);
+	}
+	
+	public int getJobLevel(String uuid, String job) {
+		PlayerJobDataFile cl = UltimateJobs.getPlayerDataFile(); 
+		cl.load(); 
+		return cl.get().getInt("Job."+uuid+".ID."+job+".Level");
+	}
+	
+	public void setJobLevel(String uuid, String job, int level) {
+		PlayerJobDataFile cl = UltimateJobs.getPlayerDataFile();
+		cl.load();
+		cl.get().set("Job."+uuid+".ID."+job+".Level", level); 
+		cl.save(); 
+	}
+	
+	public void addJobLevel(String uuid, String job, int exp) {
+		PlayerJobDataFile cl = UltimateJobs.getPlayerDataFile();
+		cl.load();
+		
+		int old = getJobLevel(uuid, job);
+		
+		setJobLevel(uuid, job, old + exp);
+	}
+	
+	public void remJobLevel(String uuid, String job, int exp) {
+		PlayerJobDataFile cl = UltimateJobs.getPlayerDataFile();
+		cl.load();
+		
+		int old = getJobLevel(uuid, job);
+		
+		setJobLevel(uuid, job, old - exp);
 	}
 	
 	public boolean isInJob(String uuid, String id) {

@@ -2,6 +2,7 @@ package de.warsteiner.ultimatejobs.utils.api;
 
 import java.io.File;
 import java.io.IOException;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
@@ -19,6 +20,20 @@ import de.warsteiner.ultimatejobs.utils.Action;
 import net.md_5.bungee.api.ChatColor;
  
 public class JobAPI {
+	
+	public String FormatAsExp(double exp) {
+		
+		 DecimalFormat t = new DecimalFormat(UltimateJobs.getPlugin().getMainConfig().getString("Format_Exp"));
+ 
+		 String b = t.format(exp).replaceAll(",", ".");
+		
+		 return b;
+		 
+	}
+  
+	public int doubleToInt(Double d) {
+	    return d.intValue();
+	}
 	
 	public boolean canBuyJob(Player p, String mode, String much) {
 		UltimateJobs plugin = UltimateJobs.getPlugin();

@@ -29,4 +29,8 @@ Translation:
   Joined: "&7You joined the Job <job>&7!"
   
   TooManyJobs: "&cYou are currently in too many jobs!"
+  
+Levels:
+
+  MaxedInGui: "&6Max"
    

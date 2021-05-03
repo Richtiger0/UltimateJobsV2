@@ -22,20 +22,27 @@ import de.warsteiner.ultimatejobs.command.PlayerJobCommand;
 public class GuiBuilder {
 
 	public Inventory createGui(Player p, int size, String name) {
-		final Inventory inv = Bukkit.createInventory(null, size, name);
+		final Inventory inv = Bukkit.createInventory(null, size, UltimateJobs.getAPI().toHex(name).replaceAll("&", "§"));
 		return inv;
 	}
 	
-	public void runAction(Player p, String display, YamlConfiguration cfg, String path, String path2) {
+	public void createOptionsItems(Player p, String job) {
+		
+		UltimateJobs plugin = UltimateJobs.getPlugin();
+		YamlConfiguration ms = plugin.getTranslation();
+		
+		
+		
+	}
+	
+	public void runAction(Player p, String display, YamlConfiguration cfg, String path, String path2, String job) {
 			List<String> custom_items = cfg.getStringList(path);
 			UltimateJobs plugin = UltimateJobs.getPlugin();
 			YamlConfiguration ms = plugin.getTranslation();
 			for(String b : custom_items) {
 				
 				String dis = cfg.getString(path2+"."+b+".Display").replaceAll("<name>", p.getName()).replaceAll("&", "§");
-				
-				
-				
+				 
 				if(display.equalsIgnoreCase(dis)) {
 					
 					String action = cfg.getString(path2+"."+b+".Action");
@@ -45,7 +52,7 @@ public class GuiBuilder {
 						p.closeInventory();
 							
 						return;
-					} else if(action.equalsIgnoreCase("LEAVE")) {
+					} else if(action.equalsIgnoreCase("LEAVEALL")) {
 					 
 							plugin.getPlayerAPI().setCurrentJobsToNull(""+p.getUniqueId());
 							
@@ -55,21 +62,41 @@ public class GuiBuilder {
 							if(mode.equalsIgnoreCase("CLOSE")) {
 								p.closeInventory();
 							} else 	if(mode.equalsIgnoreCase("REOPEN")) {
-								plugin.getBuilder().setCustomItemsInInventory(p.getOpenInventory(), p, plugin.getJobsGUIConfig(), "Custom_Items");
+								plugin.getBuilder().setCustomItemsInInventory(p.getOpenInventory(), p, plugin.getJobsGUIConfig(), "Custom_Items", "Custom_Items_Used");
 								plugin.getBuilder().setJobsItems(p.getOpenInventory(), p);
 							}
 							
 						 return;
 					}  else if(action.equalsIgnoreCase("COMMAND")) {
-						
-						String command =cfg.getString(path2+"."+b+".Command");
-						
 						p.closeInventory();
 						
+						String command =cfg.getString(path2+"."+b+".Command");
+					 
 						p.performCommand(command);
 						
 						return;
 					}  else if(action.equalsIgnoreCase("NOTHING")) {
+						return;
+					} else if(action.equalsIgnoreCase("MAIN")) {
+						String name = plugin.getJobsGUIConfig().getString("Name").replaceAll("&", "§");
+						int size = plugin.getJobsGUIConfig().getInt("Size");
+						 
+						p.openInventory(UltimateJobs.getBuilder().createGui(p, 9*size, plugin.getAPI().toHex(name)));
+						plugin.getBuilder().setJobsItems(p.getOpenInventory(), p);
+						plugin.getBuilder().setPlaceHolderItems(p.getOpenInventory(), p, plugin.getJobsGUIConfig().getStringList("PlaceHolders"));
+						plugin.getBuilder().setCustomItemsInInventory(p.getOpenInventory(), p, plugin.getJobsGUIConfig(), "Custom_Items", "Custom_Items_Used");
+						return;
+					} else if(action.equalsIgnoreCase("LEAVE")) {
+						
+						plugin.getAPI().leaveJob(p, job);
+						
+						String name = plugin.getJobsGUIConfig().getString("Name").replaceAll("&", "§");
+						int size = plugin.getJobsGUIConfig().getInt("Size");
+						 
+						p.openInventory(UltimateJobs.getBuilder().createGui(p, 9*size, plugin.getAPI().toHex(name)));
+						plugin.getBuilder().setJobsItems(p.getOpenInventory(), p);
+						plugin.getBuilder().setPlaceHolderItems(p.getOpenInventory(), p, plugin.getJobsGUIConfig().getStringList("PlaceHolders"));
+						plugin.getBuilder().setCustomItemsInInventory(p.getOpenInventory(), p, plugin.getJobsGUIConfig(), "Custom_Items", "Custom_Items_Used");
 						return;
 					}
 					
@@ -104,14 +131,14 @@ public class GuiBuilder {
 		}.runTaskAsynchronously(UltimateJobs.getPlugin()); 
 	}
 	
-	public void setCustomItemsInInventory(InventoryView inventory, Player p, YamlConfiguration config, String path2) {
+	public void setCustomItemsInInventory(InventoryView inventory, Player p, YamlConfiguration config, String path2, String path3) {
 		UltimateJobs plugin = UltimateJobs.getPlugin();
 		new BukkitRunnable() {
 			
 			@Override
 			public void run() {
   
-				List<String> used = config.getStringList("Custom_Items_Used");
+				List<String> used = config.getStringList(path3);
 				 
 				for(String i : used) {
 					String path = path2+"."+i+".";
@@ -195,8 +222,27 @@ public class GuiBuilder {
 					
 					meta.setDisplayName(plugin.getAPI().toHex(display));
 					 
+					int level = plugin.getPlayerAPI().getJobLevel(""+p.getUniqueId(), job);
+					double exp = plugin.getPlayerAPI().getJobExp(""+p.getUniqueId(), job);
+					String formatexp = plugin.getAPI().FormatAsExp(exp);
+			 
+					boolean ismax = plugin.getLevelAPI().PlayeLevelIsAlreadyMaxed(""+p.getUniqueId(), job);
+					
+					String expasstring = null;
+					String needasstring = null;
+					
+					if(ismax) {
+						expasstring = "0";
+						needasstring = plugin.getAPI().toHex(plugin.getTranslation().getString("Levels.MaxedInGui"));
+					 } else {
+						 expasstring = ""+exp;
+							needasstring =""+plugin.getLevelAPI().getJobNeedExp(""+p.getUniqueId(), job);
+					 }
+					
+					String levelname = plugin.getLevelAPI().getDisPlayOfLevel(""+p.getUniqueId(), job, level);
+					
 					for(String i : lore) {
-						list.add(plugin.getAPI().toHex(i).replaceAll("<price>", ""+price).replaceAll("&", "§"));
+						list.add(plugin.getAPI().toHex(i).replaceAll("<level_as_name>", levelname).replaceAll("<need>", needasstring).replaceAll("<exp>", expasstring).replaceAll("<level_as_int>", ""+level).replaceAll("<price>", ""+price).replaceAll("&", "§"));
 					}
 					
 					meta.setLore(list);

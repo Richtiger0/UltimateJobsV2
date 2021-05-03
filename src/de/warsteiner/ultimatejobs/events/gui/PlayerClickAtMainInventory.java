@@ -45,7 +45,7 @@ public class PlayerClickAtMainInventory implements Listener {
 		if (e.getView().getTitle().equalsIgnoreCase(plugin.getAPI().toHex(name))) {
 			e.setCancelled(true);
 			 
-			plugin.getBuilder().runAction(p, display, plugin.getJobsGUIConfig(), "Custom_Items_Used", "Custom_Items");
+			plugin.getBuilder().runAction(p, display, plugin.getJobsGUIConfig(), "Custom_Items_Used", "Custom_Items", null);
 			
 			for(String job : plugin.getJobsListConfig().getStringList("Jobs")) {
 				
@@ -60,7 +60,7 @@ public class PlayerClickAtMainInventory implements Listener {
 							if(plugin.getAPI().canBuyJob(p, mode, price)) {
 								plugin.getAPI().buyJobAndRemoveMoney(p, mode, price, job);
 								plugin.getPlayerAPI().createJob(""+p.getUniqueId(), job);
-								plugin.getBuilder().setCustomItemsInInventory(p.getOpenInventory(), p, plugin.getJobsGUIConfig(), "Custom_Items");
+								plugin.getBuilder().setCustomItemsInInventory(p.getOpenInventory(), p, plugin.getJobsGUIConfig(), "Custom_Items", "Custom_Items_Used");
 								plugin.getBuilder().setJobsItems(p.getOpenInventory(), p);
 							} else {
 								String message = ms.getString("Translation.Prefix") + ms.getString("Translation.Not_Enough");
@@ -79,16 +79,20 @@ public class PlayerClickAtMainInventory implements Listener {
 									String message = ms.getString("Translation.Prefix") + ms.getString("Translation.LeftJob").replaceAll("<job>", plugin.getAPI().getJobDisplay(job));
 									p.sendMessage(plugin.getAPI().toHex(message).replaceAll("&", "§"));
 									
-									plugin.getBuilder().setCustomItemsInInventory(p.getOpenInventory(), p, plugin.getJobsGUIConfig(), "Custom_Items");
+									plugin.getBuilder().setCustomItemsInInventory(p.getOpenInventory(), p, plugin.getJobsGUIConfig(), "Custom_Items", "Custom_Items_Used");
 									plugin.getBuilder().setJobsItems(p.getOpenInventory(), p);
 									 
 								} else 	if(m.equalsIgnoreCase("OPTIONS")) {
-									p.sendMessage("open gui");
+									String gui = plugin.getJobsGUIConfig().getString("Options_Name").replaceAll("<job>", plugin.getAPI().getJobDisplay(job));
+									p.openInventory(plugin.getBuilder().createGui(p, 9*plugin.getJobsGUIConfig().getInt("Options_Size"), gui));
+									plugin.getBuilder().setCustomItemsInInventory(p.getOpenInventory(), p, plugin.getJobsGUIConfig(), "Options_Custom_Items", "Options_Custom_Items_Used");
+									plugin.getBuilder().setPlaceHolderItems(p.getOpenInventory(), p, plugin.getJobsGUIConfig().getStringList("Options_PlaceHolders"));
+								 
 								}
 						 
 							} else {
 								plugin.getAPI().joinJob(p, job);
-								plugin.getBuilder().setCustomItemsInInventory(p.getOpenInventory(), p, plugin.getJobsGUIConfig(), "Custom_Items");
+								plugin.getBuilder().setCustomItemsInInventory(p.getOpenInventory(), p, plugin.getJobsGUIConfig(), "Custom_Items","Custom_Items_Used");
 								plugin.getBuilder().setJobsItems(p.getOpenInventory(), p);
 							}
 							

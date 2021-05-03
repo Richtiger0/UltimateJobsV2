@@ -20,16 +20,16 @@ Jobs_UpdateMode: "REOPEN"
 Lore_InJob:
   - "&7"
   - "&7Status&8: &a&l✓"
-  - "&7Level&8: &c<level>"
-  - "&7Progress&8: &c<exp>&8/&c<need> &7(&a<pr>%&7)"
+  - "&7Level&8: <level_as_name> &8/ &c<level_as_int>"
+  - "&7Progress&8: &c<exp>&8/&c<need>"
   - "&7"
   - "&7Click&8: &eShow Details"
   
 Lore_Bought:
   - "&7"
   - "&7Status&8: &a&l✓"
-  - "&7Level&8: &c<level>"
-  - "&7Progress&8: &c<exp>&8/&c<need> &7(&a<pr>%&7)"
+  - "&7Level&8: <level_as_name> &8/ &c<level_as_int>"
+  - "&7Progress&8: &c<exp>&8/&c<need>"
   - "&7"
   - "&7Click&8: &aJoin Job"
   
@@ -56,7 +56,7 @@ Custom_Items:
     
     Enchanted: false
     
-    Action: "LEAVE"
+    Action: "LEAVEALL"
     
     ItemFlags:
       - "HIDE_ATTRIBUTES"
@@ -120,23 +120,43 @@ PlaceHolders:
 # "LEAVE" means, you click, and you  leave the job
 #
 ActionOnClick: "OPTIONS"
-
-Options_Name: "#14FFAAJobs"
+ 
+Options_Name: "#14FFAAJobs &8- <job>"
 
 Options_Size: 3
  
 Options_Custom_Items_Used: 
   - "Back"
+  - "Leave"
+  - "Command"
   
 Options_Custom_Items:
 
   Back:
   
-    Display: "&cLeave all Jobs"
+    Display: "&cGo Back"
     
     Icon: "BARRIER"
     
-    Show_Only_If_InJob: true
+    Show_Only_If_InJob: false
+    
+    Enchanted: false
+    
+    Action: "MAIN"
+    
+    ItemFlags:
+      - "HIDE_ATTRIBUTES"
+      - "HIDE_ENCHANTS"
+    
+    Slot: 22
+    
+  Leave:
+  
+    Display: "&cLeave this Job"
+    
+    Icon: "RED_DYE"
+    
+    Show_Only_If_InJob: false
     
     Enchanted: false
     
@@ -146,7 +166,46 @@ Options_Custom_Items:
       - "HIDE_ATTRIBUTES"
       - "HIDE_ENCHANTS"
     
-    Slot: 2
+    Slot: 14
+    
+  Command:
+  
+    Display: "&eSee Infos about this Job"
+    
+    Icon: "PAPER"
+    
+    Show_Only_If_InJob: false
+    
+    Enchanted: false
+    
+    Action: "COMMAND"
+    
+    Command: "/jobs info <id>"
+    
+    ItemFlags:
+      - "HIDE_ATTRIBUTES"
+      - "HIDE_ENCHANTS"
+    
+    Slot: 12
  
 Options_PlaceHolders:
   - "BLACK_STAINED_GLASS_PANE:0:&7"  
+  - "BLACK_STAINED_GLASS_PANE:1:&7"  
+  - "BLACK_STAINED_GLASS_PANE:2:&7"  
+  - "BLACK_STAINED_GLASS_PANE:3:&7"  
+  - "BLACK_STAINED_GLASS_PANE:4:&7"  
+  - "BLACK_STAINED_GLASS_PANE:5:&7"  
+  - "BLACK_STAINED_GLASS_PANE:6:&7"  
+  - "BLACK_STAINED_GLASS_PANE:7:&7"  
+  - "BLACK_STAINED_GLASS_PANE:8:&7"  
+  - "BLACK_STAINED_GLASS_PANE:9:&7"  
+  - "BLACK_STAINED_GLASS_PANE:17:&7"  
+  - "BLACK_STAINED_GLASS_PANE:18:&7"   
+  - "BLACK_STAINED_GLASS_PANE:19:&7"  
+  - "BLACK_STAINED_GLASS_PANE:20:&7" 
+  - "BLACK_STAINED_GLASS_PANE:21:&7"   
+  - "BLACK_STAINED_GLASS_PANE:23:&7"  
+  - "BLACK_STAINED_GLASS_PANE:24:&7"  
+  - "BLACK_STAINED_GLASS_PANE:25:&7"  
+  - "BLACK_STAINED_GLASS_PANE:26:&7"  
+  

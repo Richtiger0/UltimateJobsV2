@@ -14,7 +14,9 @@ import de.warsteiner.ultimatejobs.command.PlayerJobCommand;
 import de.warsteiner.ultimatejobs.events.PlayerBreakBlockEvent;
 import de.warsteiner.ultimatejobs.events.PlayerExistEvent;
 import de.warsteiner.ultimatejobs.events.gui.PlayerClickAtMainInventory;
+import de.warsteiner.ultimatejobs.events.gui.PlayerClickAtOptionsInventory;
 import de.warsteiner.ultimatejobs.utils.api.JobAPI;
+import de.warsteiner.ultimatejobs.utils.api.LevelAPI;
 import de.warsteiner.ultimatejobs.utils.api.PlayerAPI;
 import de.warsteiner.ultimatejobs.utils.builder.GuiBuilder;
 import de.warsteiner.ultimatejobs.utils.data.PlayerJobDataFile;
@@ -33,6 +35,7 @@ public class UltimateJobs extends JavaPlugin {
 	private static PlayerAPI player;
 	private static PlayerJobDataFile data;
 	private static YamlConfiguration translation;
+	private static LevelAPI lapi;
 	
 	@Override
 	public void onEnable() {
@@ -43,6 +46,7 @@ public class UltimateJobs extends JavaPlugin {
 		api = new JobAPI();
 		builder = new GuiBuilder();
 		player = new PlayerAPI();
+		lapi = new LevelAPI();
 		
 		setupEconomy();
       
@@ -119,6 +123,7 @@ public class UltimateJobs extends JavaPlugin {
 	     Bukkit.getPluginManager().registerEvents(new PlayerBreakBlockEvent(), this);
 	     Bukkit.getPluginManager().registerEvents(new PlayerExistEvent(), this);
 	     Bukkit.getPluginManager().registerEvents(new PlayerClickAtMainInventory(), this);
+	     Bukkit.getPluginManager().registerEvents(new PlayerClickAtOptionsInventory(), this);
 	     
 	     getCommand("jobs").setExecutor(new PlayerJobCommand());
 	      
@@ -138,6 +143,10 @@ public class UltimateJobs extends JavaPlugin {
 	}
 		    
 		return (econ != null);
+	}
+	
+	public static LevelAPI getLevelAPI() {
+		return lapi;
 	}
 	
 	public static Economy getEconomy() {
