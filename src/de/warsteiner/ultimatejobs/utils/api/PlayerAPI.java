@@ -43,10 +43,10 @@ public class PlayerAPI {
 		return cl.get().getDouble("Job."+uuid+".ID."+job+".Exp");
 	}
 	
-	public void setJobExp(String uuid, String job, int exp) {
+	public void setJobExp(String uuid, String job, double d) {
 		PlayerJobDataFile cl = UltimateJobs.getPlayerDataFile();
 		cl.load();
-		cl.get().set("Job."+uuid+".ID."+job+".Exp", exp); 
+		cl.get().set("Job."+uuid+".ID."+job+".Exp", d); 
 		cl.save(); 
 	}
 	
@@ -54,7 +54,7 @@ public class PlayerAPI {
 		PlayerJobDataFile cl = UltimateJobs.getPlayerDataFile();
 		cl.load();
 		
-		int old = getJobLevel(uuid, job);
+		double old = getJobExp(uuid, job);
 		
 		setJobExp(uuid, job, old + exp);
 	}
@@ -63,7 +63,7 @@ public class PlayerAPI {
 		PlayerJobDataFile cl = UltimateJobs.getPlayerDataFile();
 		cl.load();
 		
-		int old = getJobLevel(uuid, job);
+		double old = getJobExp(uuid, job);
 		
 		setJobExp(uuid, job, old - exp);
 	}

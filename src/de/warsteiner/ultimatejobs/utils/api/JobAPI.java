@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -33,6 +34,64 @@ public class JobAPI {
   
 	public int doubleToInt(Double d) {
 	    return d.intValue();
+	}
+	
+	public int getChanceOfID(String job, String id) {
+		YamlConfiguration cfg = getConfigOfJob(job);
+ 
+		return cfg.getInt("IDS."+id+".Chance");
+	}
+	
+	public int getPointsOfID(String job, String id) {
+		YamlConfiguration cfg = getConfigOfJob(job);
+ 
+		return cfg.getInt("IDS."+id+".Points");
+	}
+	
+	public int getVanillaOfID(String job, String id) {
+		YamlConfiguration cfg = getConfigOfJob(job);
+ 
+		return cfg.getInt("IDS."+id+".Vanilla");
+	}
+	
+	public double getRewardOfID(String job, String id) {
+		YamlConfiguration cfg = getConfigOfJob(job);
+ 
+		return cfg.getDouble("IDS."+id+".Reward");
+	}
+	
+	public int getDisplayOfID(String job, String id) {
+		YamlConfiguration cfg = getConfigOfJob(job);
+ 
+		return cfg.getInt("IDS."+id+".Display");
+	}
+	
+	public boolean getReward(String job, String id) {
+ 
+		int chance = getChanceOfID(job, id);
+ 
+		Random r = new Random();
+		int chance2 = r.nextInt(100);
+	                    
+	    if (chance2 < chance) { 
+	    	   return true;
+	       }
+		return false;
+		
+	}
+	
+	public boolean isSupportedID(String job, String id) {
+		
+		YamlConfiguration cfg = getConfigOfJob(job);
+		
+		if(cfg.contains("IDS."+id+".Reward")) {
+			
+			return true;
+			
+		}
+		
+		return false;
+		
 	}
 	
 	public boolean canBuyJob(Player p, String mode, String much) {

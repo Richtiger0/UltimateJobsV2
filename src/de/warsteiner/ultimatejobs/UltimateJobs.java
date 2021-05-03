@@ -10,7 +10,8 @@ import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import de.warsteiner.ultimatejobs.command.PlayerJobCommand; 
+import de.warsteiner.ultimatejobs.command.PlayerJobCommand;
+import de.warsteiner.ultimatejobs.events.PlayerBlockPlaceEventAddFlag;
 import de.warsteiner.ultimatejobs.events.PlayerBreakBlockEvent;
 import de.warsteiner.ultimatejobs.events.PlayerExistEvent;
 import de.warsteiner.ultimatejobs.events.gui.PlayerClickAtMainInventory;
@@ -18,6 +19,7 @@ import de.warsteiner.ultimatejobs.events.gui.PlayerClickAtOptionsInventory;
 import de.warsteiner.ultimatejobs.utils.api.JobAPI;
 import de.warsteiner.ultimatejobs.utils.api.LevelAPI;
 import de.warsteiner.ultimatejobs.utils.api.PlayerAPI;
+import de.warsteiner.ultimatejobs.utils.api.RewardAPI;
 import de.warsteiner.ultimatejobs.utils.builder.GuiBuilder;
 import de.warsteiner.ultimatejobs.utils.data.PlayerJobDataFile;
 import net.milkbowl.vault.economy.Economy; 
@@ -36,6 +38,7 @@ public class UltimateJobs extends JavaPlugin {
 	private static PlayerJobDataFile data;
 	private static YamlConfiguration translation;
 	private static LevelAPI lapi;
+	private static RewardAPI rewards;
 	
 	@Override
 	public void onEnable() {
@@ -47,6 +50,7 @@ public class UltimateJobs extends JavaPlugin {
 		builder = new GuiBuilder();
 		player = new PlayerAPI();
 		lapi = new LevelAPI();
+		rewards = new RewardAPI();
 		
 		setupEconomy();
       
@@ -120,7 +124,10 @@ public class UltimateJobs extends JavaPlugin {
         data = new PlayerJobDataFile();
         data.create();
         
+        //job events
 	     Bukkit.getPluginManager().registerEvents(new PlayerBreakBlockEvent(), this);
+	     Bukkit.getPluginManager().registerEvents(new PlayerBlockPlaceEventAddFlag(), this);
+	     //other events
 	     Bukkit.getPluginManager().registerEvents(new PlayerExistEvent(), this);
 	     Bukkit.getPluginManager().registerEvents(new PlayerClickAtMainInventory(), this);
 	     Bukkit.getPluginManager().registerEvents(new PlayerClickAtOptionsInventory(), this);
@@ -147,6 +154,10 @@ public class UltimateJobs extends JavaPlugin {
 	
 	public static LevelAPI getLevelAPI() {
 		return lapi;
+	}
+	
+	public static RewardAPI getRewardAPI() {
+		return rewards;
 	}
 	
 	public static Economy getEconomy() {
