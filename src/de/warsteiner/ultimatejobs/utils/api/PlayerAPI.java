@@ -51,7 +51,7 @@ public class PlayerAPI {
 		cl.load();
 		cl.get().set("Job."+uuid+".ID."+job+".Exp", d); 
 		cl.save(); 
-		new PlayerDataChangeEvent(uuid);
+		new PlayerDataChangeEvent(uuid, job);
 	}
 	
 	public void addJobExp(String uuid, String job, double exp) {
@@ -83,7 +83,7 @@ public class PlayerAPI {
 		cl.load();
 		cl.get().set("Job."+uuid+".ID."+job+".Level", level); 
 		cl.save(); 
-		new PlayerDataChangeEvent(uuid);
+		new PlayerDataChangeEvent(uuid, job);
 	}
 	
 	public void addJobLevel(String uuid, String job, int exp) {

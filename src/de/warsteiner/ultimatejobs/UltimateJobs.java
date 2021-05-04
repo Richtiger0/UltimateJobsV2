@@ -39,6 +39,7 @@ public class UltimateJobs extends JavaPlugin {
 	private static YamlConfiguration translation;
 	private static LevelAPI lapi;
 	private static RewardAPI rewards;
+	private static YamlConfiguration cmd;
 	
 	@Override
 	public void onEnable() {
@@ -66,11 +67,13 @@ public class UltimateJobs extends JavaPlugin {
 	    File jobgui;
 	    File mainfile;
 	    File trans;
-	 
+	    File  cmdfile;
+	    
 		joblist = new File(UltimateJobs.getPlugin().getDataFolder(), "Jobs.yml");
 		jobgui = new File(UltimateJobs.getPlugin().getDataFolder(), "JobsGUI.yml");
 		mainfile = new File(UltimateJobs.getPlugin().getDataFolder(), "Main.yml");
 		trans = new File(UltimateJobs.getPlugin().getDataFolder(), "Translation.yml");
+		cmdfile = new File(UltimateJobs.getPlugin().getDataFolder(), "Command.yml");
 		
         if (!trans.exists()) {
         	trans.getParentFile().mkdirs();
@@ -80,6 +83,18 @@ public class UltimateJobs extends JavaPlugin {
         translation= new YamlConfiguration();
         try {
         	translation.load(trans);
+        } catch (IOException | InvalidConfigurationException e) {
+            e.printStackTrace();
+        }
+        
+        if (!cmdfile.exists()) {
+        	cmdfile.getParentFile().mkdirs();
+            UltimateJobs.getPlugin(). saveResource("Command.yml", true);
+         }
+        
+        cmd= new YamlConfiguration();
+        try {
+        	cmd.load(cmdfile);
         } catch (IOException | InvalidConfigurationException e) {
             e.printStackTrace();
         }
@@ -156,6 +171,10 @@ public class UltimateJobs extends JavaPlugin {
 	
 	public static LevelAPI getLevelAPI() {
 		return lapi;
+	}
+	
+	public static YamlConfiguration getCommandConfig() {
+		return cmd;
 	}
 	
 	public static RewardAPI getRewardAPI() {

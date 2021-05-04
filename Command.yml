@@ -1,0 +1,65 @@
+# .----------------.  .----------------.  .----------------.  .----------------.  .----------------.  .-----------------. .----------------. 
+#| .--------------. || .--------------. || .--------------. || .--------------. || .--------------. || .--------------. || .--------------. |
+#| |     ______   | || |     ____     | || | ____    ____ | || | ____    ____ | || |      __      | || | ____  _____  | || |  ________    | |
+#| |   .' ___  |  | || |   .'    `.   | || ||_   \  /   _|| || ||_   \  /   _|| || |     /  \     | || ||_   \|_   _| | || | |_   ___ `.  | |
+#| |  / .'   \_|  | || |  /  .--.  \  | || |  |   \/   |  | || |  |   \/   |  | || |    / /\ \    | || |  |   \ | |   | || |   | |   `. \ | |
+#| |  | |         | || |  | |    | |  | || |  | |\  /| |  | || |  | |\  /| |  | || |   / ____ \   | || |  | |\ \| |   | || |   | |    | | | |
+#| |  \ `.___.'\  | || |  \  `--'  /  | || | _| |_\/_| |_ | || | _| |_\/_| |_ | || | _/ /    \ \_ | || | _| |_\   |_  | || |  _| |___.' / | |
+#| |   `._____.'  | || |   `.____.'   | || ||_____||_____|| || ||_____||_____|| || ||____|  |____|| || ||_____|\____| | || | |________.'  | |
+#| |              | || |              | || |              | || |              | || |              | || |              | || |              | |
+#| '--------------' || '--------------' || '--------------' || '--------------' || '--------------' || '--------------' || '--------------' |
+# '----------------'  '----------------'  '----------------'  '----------------'  '----------------'  '----------------'  '----------------' 
+
+TabComplete: true
+
+Command:
+
+  Help:
+  
+    Use: true
+    
+    Disabled: "&cThis Command args is disabled!"
+    
+    Usage: "help"
+    
+    Permission: "ultimatejobs.command.help"
+    
+    NoPermMessage: "&cYou dont have permissions for this!"
+ 
+    PageNotFound: "&cThe Page <page> doesnt exist!"
+    
+    NotNumber: "&cPlease use /Jobs help <number>"
+ 
+    Page_2:
+      - "&7"
+      - "&8« &m-------------&8[ &bUltimateJobs &8- &7Help &8- &b2 &8]&m-------------&r &8»"
+      - "&7"
+      - "&8| &b/Jobs admin blockinfo &8» &7See Details of the current looking Job"
+      - "&8| &b/Jobs admin addjob <name> <job> &8» &7Add Job to Player"
+      - "&8| &b/Jobs admin remjob <name> <job> &8» &7Remove Job from Player"
+      - "&8| &b/Jobs admin setlevel <name> <job> <level> &8» &7Set Level of Player"
+      - "&8| &b/Jobs admin setexp <name> <job> <exp> &8» &7Set Exp of Player"
+      - "&8| &b/Jobs admin setpoints <name> <job> <points> &8» &7Set Points of Player"
+      - "&8| &b/Jobs admin setlimit <name> <job_limit> &8» &7Set the Jobs Limit"
+      - "&7"
+      - "&8« &m-------------&8[ &bUltimateJobs &8- &7Help &8- &b2 &8]&m-------------&r &8»"
+      - "&7"
+    
+    Page_1:
+      - "&7"
+      - "&8« &m-------------&8[ &bUltimateJobs &8- &7Help &8- &b1 &8]&m-------------&r &8»"
+      - "&7"
+      - "&8| &b/Jobs help &8» &7This Page"
+      - "&8| &b/Jobs info <job> &8» &7See the Rewards"
+      - "&8| &b/Jobs browse &8» &7List all possible Jobs"
+      - "&8| &b/Jobs join <job> &8» &7Join a Job"
+      - "&8| &b/Jobs leave <job> &8» &7Leave a Job"
+      - "&8| &b/Jobs buy <job> &8» &7Buy a Job"
+      - "&8| &b/Jobs leaveall &8» &7Watch your Job limit"
+      - "&8| &b/Jobs points <name> &8» &7Watch player Points"
+      - "&8| &b/Jobs stats <name> &8» &7Watch Job Stats"
+      - "&8| &b/Jobs level <name>  &8» &7Watch Job Level"
+      - "&8| &b/Jobs exp <name> &8» &7Watch Job Exp"
+      - "&7"
+      - "&8« &m-------------&8[ &bUltimateJobs &8- &7Help &8- &b1 &8]&m-------------&r &8»"
+      - "&7"

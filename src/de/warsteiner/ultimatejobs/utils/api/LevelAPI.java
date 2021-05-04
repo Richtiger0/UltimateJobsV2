@@ -23,7 +23,37 @@ public class LevelAPI {
 		if(!isMaxLevel(need)) {
 			return need;
 		} 
-		return "MaxLevelReached"; 
+		return UltimateJobs.getTranslation().getString("Levels.MaxedInGui").replaceAll("&", "§"); 
+	}
+	
+	public String getJobLevelUpRewardType(String uuid, String job) {
+		
+		UltimateJobs plugin = UltimateJobs.getPlugin();
+		
+		YamlConfiguration cfg = plugin.getAPI().getConfigOfJob(job);
+ 
+		int next = plugin.getPlayerAPI().getJobLevel(uuid, job)+1;
+		
+		String path = "L"+next;
+		
+		String ty = cfg.getString("Levels."+path+".Reward");
+ 
+		return ty; 
+	}
+	
+	public List<String> getRewardList(String uuid, String job) {
+		
+		UltimateJobs plugin = UltimateJobs.getPlugin();
+		
+		YamlConfiguration cfg = plugin.getAPI().getConfigOfJob(job);
+ 
+		int next = plugin.getPlayerAPI().getJobLevel(uuid, job)+1;
+		
+		String path = "L"+next;
+		
+		List<String> ty = cfg.getStringList("Levels."+path+".Commands");
+ 
+		return ty; 
 	}
 	
 	public boolean PlayeLevelIsAlreadyMaxed(String uuid, String job) {

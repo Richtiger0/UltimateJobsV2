@@ -34,6 +34,21 @@ Levels:
 
   MaxedInGui: "&6Max"
   
+  #
+  # 1. "TITLE"
+  # 2. "MESSAGE"
+  #
+  
+  LevelUpMode: "TITLE"
+  
+  Message: "&aYou have reached a new Level in <job>&a! &8(&b#<level_as_int>&8)"
+  
+  Title:
+  
+    First: "&8| &bLevels &8- <job> &8|"
+    
+    Second: "&aNew &7level &b<level_as_int>"
+  
 Jobs:
 
   #

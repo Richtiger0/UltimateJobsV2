@@ -13,9 +13,10 @@ public class PlayerDataChangeEvent extends Event {
   
 		public String uuid;
 		public UUID id;
- 
-			public PlayerDataChangeEvent(String uuid) {
-		 
+		public String job;
+		
+			public PlayerDataChangeEvent(String uuid, String job) {
+				this.job = job;
 				this.uuid = uuid;
 				Bukkit.getPluginManager().callEvent(this);
 			}
@@ -26,6 +27,10 @@ public class PlayerDataChangeEvent extends Event {
 			
 			public String getUUID() {
 				return uuid;
+			}
+			
+			public String getJob() {
+				return job;
 			}
 			
 		  public static HandlerList getHandlerList() {

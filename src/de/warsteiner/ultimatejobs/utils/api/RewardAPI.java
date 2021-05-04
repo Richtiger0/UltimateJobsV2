@@ -23,7 +23,9 @@ public class RewardAPI {
 		
 		player.giveExp(Integer.valueOf(vanilla));
 		
+		if(!plugin.getLevelAPI().PlayeLevelIsAlreadyMaxed(""+player.getUniqueId(), job)) {
 		plugin.getPlayerAPI().addJobExp(""+player.getUniqueId(), job, Double.valueOf(exp));
+		}
 		
 		sendRewardMessage(job, player, ""+money, ""+vanilla, ""+exp);
 		
