@@ -44,11 +44,11 @@ Jobs:
   
   ActionBar:
   
-    Message: "<job> &8| &7<money> Dollar &8- &7<exp> Exp &8- &7<van> Vanilla"
+    Message: "<job> &8| &7<money> Dollar &8- &7<exp> Exp &8- &7<van> Vanilla &8| &7<ep>&8/&7<need>"
   
   BossBar:
   
-    Message: "<job> &8| &7<money> Dollar &8- &7<exp> Exp &8- &7<van> Vanilla"
+    Message: "<job> &8| &7<money> Dollar &8- &7<exp> Exp &8- &7<van> Vanilla &8| &7<ep>&8/&7<need>"
     
     Ticks: 20
     

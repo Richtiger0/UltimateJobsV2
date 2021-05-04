@@ -4,8 +4,7 @@ import java.io.File;
 import java.io.IOException;
 
 import org.bukkit.Bukkit;
-import org.bukkit.configuration.InvalidConfigurationException;
-import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.configuration.InvalidConfigurationException; 
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -14,6 +13,7 @@ import de.warsteiner.ultimatejobs.command.PlayerJobCommand;
 import de.warsteiner.ultimatejobs.events.PlayerBlockPlaceEventAddFlag;
 import de.warsteiner.ultimatejobs.events.PlayerBreakBlockEvent;
 import de.warsteiner.ultimatejobs.events.PlayerExistEvent;
+import de.warsteiner.ultimatejobs.events.PlayerLevelCheckEvent;
 import de.warsteiner.ultimatejobs.events.gui.PlayerClickAtMainInventory;
 import de.warsteiner.ultimatejobs.events.gui.PlayerClickAtOptionsInventory;
 import de.warsteiner.ultimatejobs.utils.api.JobAPI;
@@ -128,9 +128,11 @@ public class UltimateJobs extends JavaPlugin {
 	     Bukkit.getPluginManager().registerEvents(new PlayerBreakBlockEvent(), this);
 	     Bukkit.getPluginManager().registerEvents(new PlayerBlockPlaceEventAddFlag(), this);
 	     //other events
+ 
 	     Bukkit.getPluginManager().registerEvents(new PlayerExistEvent(), this);
 	     Bukkit.getPluginManager().registerEvents(new PlayerClickAtMainInventory(), this);
 	     Bukkit.getPluginManager().registerEvents(new PlayerClickAtOptionsInventory(), this);
+	     Bukkit.getPluginManager().registerEvents(new PlayerLevelCheckEvent(), this);
 	     
 	     getCommand("jobs").setExecutor(new PlayerJobCommand());
 	      

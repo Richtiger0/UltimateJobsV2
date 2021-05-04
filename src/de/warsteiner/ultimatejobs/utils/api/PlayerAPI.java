@@ -3,7 +3,10 @@ package de.warsteiner.ultimatejobs.utils.api;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.bukkit.Bukkit;
+
 import de.warsteiner.ultimatejobs.UltimateJobs;
+import de.warsteiner.ultimatejobs.utils.api.events.PlayerDataChangeEvent;
 import de.warsteiner.ultimatejobs.utils.data.PlayerJobDataFile;
 
 public class PlayerAPI {
@@ -48,9 +51,10 @@ public class PlayerAPI {
 		cl.load();
 		cl.get().set("Job."+uuid+".ID."+job+".Exp", d); 
 		cl.save(); 
+		new PlayerDataChangeEvent(uuid);
 	}
 	
-	public void addJobExp(String uuid, String job, int exp) {
+	public void addJobExp(String uuid, String job, double exp) {
 		PlayerJobDataFile cl = UltimateJobs.getPlayerDataFile();
 		cl.load();
 		
@@ -79,6 +83,7 @@ public class PlayerAPI {
 		cl.load();
 		cl.get().set("Job."+uuid+".ID."+job+".Level", level); 
 		cl.save(); 
+		new PlayerDataChangeEvent(uuid);
 	}
 	
 	public void addJobLevel(String uuid, String job, int exp) {

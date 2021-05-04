@@ -60,6 +60,12 @@ public class JobAPI {
 		return cfg.getDouble("IDS."+id+".Reward");
 	}
 	
+	public double getExpofID(String job, String id) {
+		YamlConfiguration cfg = getConfigOfJob(job);
+ 
+		return cfg.getDouble("IDS."+id+".Exp");
+	}
+	
 	public int getDisplayOfID(String job, String id) {
 		YamlConfiguration cfg = getConfigOfJob(job);
  
