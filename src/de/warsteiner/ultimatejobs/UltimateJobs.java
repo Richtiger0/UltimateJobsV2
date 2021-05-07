@@ -10,6 +10,8 @@ import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import de.warsteiner.ultimatejobs.command.PlayerJobCommand;
+import de.warsteiner.ultimatejobs.command.PlayerJobTabComplete;
+import de.warsteiner.ultimatejobs.events.PlayerBlockPlaceEvent;
 import de.warsteiner.ultimatejobs.events.PlayerBlockPlaceEventAddFlag;
 import de.warsteiner.ultimatejobs.events.PlayerBreakBlockEvent;
 import de.warsteiner.ultimatejobs.events.PlayerExistEvent;
@@ -141,6 +143,8 @@ public class UltimateJobs extends JavaPlugin {
         
         //job events
 	     Bukkit.getPluginManager().registerEvents(new PlayerBreakBlockEvent(), this);
+	     Bukkit.getPluginManager().registerEvents(new PlayerBlockPlaceEvent(), this);
+	     
 	     Bukkit.getPluginManager().registerEvents(new PlayerBlockPlaceEventAddFlag(), this);
 	     //other events
  
@@ -151,8 +155,10 @@ public class UltimateJobs extends JavaPlugin {
 	     
 	     getCommand("jobs").setExecutor(new PlayerJobCommand());
 	      
-	    	//  getCommand("jobs").setTabCompleter((TabCompleter)new PlayerJobTabComplete());
-	    
+	     if(cmd.getBoolean("TabComplete")) {
+	    	 getCommand("jobs").setTabCompleter(new PlayerJobTabComplete());
+	     }
+
 		 UltimateJobs.getPlugin().getLogger().info("§a ");
 		 UltimateJobs.getPlugin().getLogger().info("§8-> §cLoaded UltimateJobs!");
 		 UltimateJobs.getPlugin().getLogger().info("§7Jobs: "+getJobsListConfig().getStringList("Jobs").size()+" loaded");

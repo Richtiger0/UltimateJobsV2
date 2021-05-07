@@ -333,6 +333,12 @@ public class JobAPI {
     	return list;
     }
     
+    public String getConfigIdOfJob(String job) {
+    	YamlConfiguration config = getConfigOfJob(job.toUpperCase());
+		
+		return config.getString("ID");
+    }
+    
     public boolean existJobWithConfigID(String job) {
     	return getJobsWithConfigIDSHigh().contains(job.toUpperCase());
     }

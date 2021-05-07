@@ -320,54 +320,61 @@ public class PlayerJobCommand implements CommandExecutor {
 									List<String> message_1 = cmd.getStringList("Command.Stats.Message_1");
 									List<String> message_2 = cmd.getStringList("Command.Stats.Message_2");
 									
-									for(String b : message_1) {
-										p.sendMessage(plugin.getAPI().toHex(b.replaceAll("<name>", pl).replaceAll("<prefix>", prefix).replaceAll("&", "§")));
-									}
+									 
 									
 								 
 									String format = plugin.getAPI().toHex(cmd.getString("Command.Stats.Format").replaceAll("<prefix>", prefix).replaceAll("&", "§"));;
 									 
-									for(String j : jobs) {
-										
-										YamlConfiguration cfg = plugin.getAPI().getConfigOfJob(j);
-										
-										int level = plugin.getPlayerAPI().getJobLevel(""+p.getUniqueId(), j);
-										String levelname = plugin.getLevelAPI().getDisPlayOfLevel(""+p.getUniqueId(), j, level); 
-										
-										double exp = plugin.getPlayerAPI().getJobExp(""+p.getUniqueId(), j);
-										String formatexp = plugin.getAPI().FormatAsExp(exp);
-										
-										boolean ismax = plugin.getLevelAPI().PlayeLevelIsAlreadyMaxed(""+p.getUniqueId(), j);
-										
-										String need = null;
-										
-										if(ismax) {
-											need = plugin.getAPI().toHex(plugin.getTranslation().getString("Levels.MaxedInGui"));
-										} else {
-											need = plugin.getLevelAPI().getJobNeedExp(""+p.getUniqueId(), j);
+									if(jobs.size() != 0) {
+										for(String b : message_1) {
+											p.sendMessage(plugin.getAPI().toHex(b.replaceAll("<name>", pl).replaceAll("<prefix>", prefix).replaceAll("&", "§")));
 										}
-										
-										String count1 = cfg.getString("Translation.Stats_Part_1");
-										String cc1 = cfg.getString("Translation.Stats_Part_1_ID");
-										
-										String c1 = ""+plugin.getPlayerAPI().getCount1(""+p.getUniqueId(), j);
-										
-										String l = plugin.getAPI().toHex(cmd.getString("Command.Stats.List")
-											.replaceAll("<id_1>", cc1)	.replaceAll("<c1>", c1).replaceAll("<st1>", count1).replaceAll("<exp>", ""+exp).replaceAll("<need>", need)	.replaceAll("<job>", plugin.getAPI().getJobDisplay(j))	.replaceAll("<level_as_string>", levelname).replaceAll("<level_as_int>", ""+level).replaceAll("<prefix>", prefix).replaceAll("&", "§"));;  
-										
-									  
-										TextComponent message = new TextComponent(plugin.getAPI().toHex(format
-										 
-												.replaceAll("<level_as_int>", ""+level).replaceAll("<level_as_name>", levelname).replaceAll("<job>", plugin.getAPI().getJobDisplay(j)).replaceAll("&","§")));
-										 
-								         message.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new Text(l)));
-	 
-								        p.spigot().sendMessage(message);
-									} 
-									
-							    	for(String b : message_2) {
-										p.sendMessage(plugin.getAPI().toHex(b.replaceAll("<name>", pl).replaceAll("<prefix>", prefix).replaceAll("&", "§")));
+										for(String j : jobs) {
+											
+											YamlConfiguration cfg = plugin.getAPI().getConfigOfJob(j);
+											
+											int level = plugin.getPlayerAPI().getJobLevel(""+p.getUniqueId(), j);
+											String levelname = plugin.getLevelAPI().getDisPlayOfLevel(""+p.getUniqueId(), j, level); 
+											
+											double exp = plugin.getPlayerAPI().getJobExp(""+p.getUniqueId(), j);
+											String formatexp = plugin.getAPI().FormatAsExp(exp);
+											
+											boolean ismax = plugin.getLevelAPI().PlayeLevelIsAlreadyMaxed(""+p.getUniqueId(), j);
+											
+											String need = null;
+											
+											if(ismax) {
+												need = plugin.getAPI().toHex(plugin.getTranslation().getString("Levels.MaxedInGui"));
+											} else {
+												need = plugin.getLevelAPI().getJobNeedExp(""+p.getUniqueId(), j);
+											}
+											
+											String count1 = cfg.getString("Translation.Stats_Part_1");
+											String cc1 = cfg.getString("Translation.Stats_Part_1_ID");
+											
+											String c1 = ""+plugin.getPlayerAPI().getCount1(""+p.getUniqueId(), j);
+											
+											String l = plugin.getAPI().toHex(cmd.getString("Command.Stats.List")
+												.replaceAll("<id_1>", cc1)	.replaceAll("<c1>", c1).replaceAll("<st1>", count1).replaceAll("<exp>", ""+exp).replaceAll("<need>", need)	.replaceAll("<job>", plugin.getAPI().getJobDisplay(j))	.replaceAll("<level_as_string>", levelname).replaceAll("<level_as_int>", ""+level).replaceAll("<prefix>", prefix).replaceAll("&", "§"));;  
+											
+										  
+											TextComponent message = new TextComponent(plugin.getAPI().toHex(format
+											 
+													.replaceAll("<level_as_int>", ""+level).replaceAll("<level_as_name>", levelname).replaceAll("<job>", plugin.getAPI().getJobDisplay(j)).replaceAll("&","§")));
+											 
+									         message.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new Text(l)));
+		 
+									        p.spigot().sendMessage(message);
+										} 
+										for(String b : message_2) {
+											p.sendMessage(plugin.getAPI().toHex(b.replaceAll("<name>", pl).replaceAll("<prefix>", prefix).replaceAll("&", "§")));
+										}
+									} else {
+										p.sendMessage(plugin.getAPI().toHex(cmd.getString("Command.Stats.NoJobsOfPlayer").replaceAll("<prefix>", prefix).replaceAll("&", "§")));
+										return true;
 									}
+									
+							    	 
 							        
 											return true;
 									 

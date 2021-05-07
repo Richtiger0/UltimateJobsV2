@@ -290,6 +290,8 @@ Command:
     
     NoPermMessage: "<prefix> &cYou dont have permissions for this!"
     
+    NoJobsOfPlayer: "<prefix> &7That player is not in any Jobs!"
+    
     DeosntExist: "<prefix> &cThat player isnt existing!"
     
     List: "&7Infos about <job>&8:\n&8| &7Job Level&8: <level_as_string> &8/ &c#<level_as_int> \n&8| &7Job Exp&8: &7<exp> Exp
@@ -466,8 +468,7 @@ Command:
       - "&8| &b/Jobs join <job> &8» &7Join a Job"
       - "&8| &b/Jobs leave <job> &8» &7Leave a Job" 
       - "&8| &b/Jobs leaveall &8» &7Leave all Jobs"
-      - "&8| &b/Jobs limit &8» &7Watch your Job limit"
-      - "&8| &b/Jobs points <name> &8» &7Watch player Points"
+      - "&8| &b/Jobs limit &8» &7Watch your Job limit" 
       - "&8| &b/Jobs stats <name> &8» &7Watch Job Stats" 
       - "&7"
       - "&8« &m-------------&8[ &bUltimateJobs &8- &7Help &8- &b1 &8]&m-------------&r &8»"
