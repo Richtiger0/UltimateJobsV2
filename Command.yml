@@ -14,21 +14,427 @@ TabComplete: true
 
 Command:
 
+  Admin:
+  
+    Use: true
+    
+    Disabled: "<prefix> &cThis Command args is disabled!"
+    
+    Usage: "admin"
+ 
+    Permission: "ultimatejobs.command.admin"
+    
+    NoPermMessage: "<prefix> &cYou dont have permissions for this!"
+    
+    BlockInfo:
+    
+      Use: true
+      
+      Disabled: "<prefix> &cThis Command args is disabled!"
+    
+      Usage: "blockinfo"
+ 
+      Permission: "ultimatejobs.command.stats"
+    
+      NoPermMessage: "<prefix> &cYou dont have permissions for this!"
+      
+      Air: "<prefix> &cYou are looking at nothing! Just air!"
+      
+      Message:
+        - "&8------------------------"
+        - "&7Block ID&8: &6<block>" 
+        - "&8------------------------"
+
+    AddJob:
+    
+      Use: true
+      
+      Disabled: "<prefix> &cThis Command args is disabled!"
+    
+      Usage: "addjob"
+ 
+      Permission: "ultimatejobs.command.add"
+    
+      NoPermMessage: "<prefix> &cYou dont have permissions for this!"
+      
+      DeosntExist: "<prefix> &cThat player isnt existing!"
+      
+      NoJob: "<prefix> &cThat Job doesnt exist!"
+      
+      Already: "<prefix> &7The player &b<name> &7already owns the Job &a<job>&7!"
+      
+      Added: "<prefix> &7You added player &b<name> &7the Job &a<job>&7!"
+      
+    RemJob:
+    
+      Use: true
+      
+      Disabled: "<prefix> &cThis Command args is disabled!"
+    
+      Usage: "remjob"
+ 
+      Permission: "ultimatejobs.command.remove"
+    
+      NoPermMessage: "<prefix> &cYou dont have permissions for this!"
+      
+      DeosntExist: "<prefix> &cThat player isnt existing!"
+      
+      NoJob: "<prefix> &cThat Job doesnt exist!"
+      
+      DontOwn: "<prefix> &7The player &b<name> &7dont own the Job &a<job>&7!"
+      
+      Removed: "<prefix> &7You remove player &b<name> &7the Job &a<job>&7!"
+      
+    SetLevel:
+    
+      Use: true
+      
+      Disabled: "<prefix> &cThis Command args is disabled!"
+    
+      Usage: "setlevel"
+ 
+      Permission: "ultimatejobs.command.setlevel"
+    
+      NoPermMessage: "<prefix> &cYou dont have permissions for this!"
+      
+      DeosntExist: "<prefix> &cThat player isnt existing!"
+      
+      NoJob: "<prefix> &cThat Job doesnt exist!"
+      
+      Set: "<prefix> &7Set Job Level of &a<name> &7to &b<l>&7!"
+      
+      NotInt: "<prefix> &cThe Level must be a int!"
+      
+      DontOwn: "<prefix> &7The player &b<name> &7dont own the Job &a<job>&7!"
+      
+    RemLevel:
+    
+      Use: true
+      
+      Disabled: "<prefix> &cThis Command args is disabled!"
+    
+      Usage: "remlevel"
+ 
+      Permission: "ultimatejobs.command.setlevel"
+    
+      NoPermMessage: "<prefix> &cYou dont have permissions for this!"
+      
+      DeosntExist: "<prefix> &cThat player isnt existing!"
+      
+      NoJob: "<prefix> &cThat Job doesnt exist!"
+      
+      Removed: "<prefix> &7Removed Job Level of &a<name> &7- &b<l>&7!"
+      
+      NotInt: "<prefix> &cThe Level must be a int!"
+      
+      DontOwn: "<prefix> &7The player &b<name> &7dont own the Job &a<job>&7!"
+      
+    AddLevel:
+    
+      Use: true
+      
+      Disabled: "<prefix> &cThis Command args is disabled!"
+    
+      Usage: "addlevel"
+ 
+      Permission: "ultimatejobs.command.setlevel"
+    
+      NoPermMessage: "<prefix> &cYou dont have permissions for this!"
+      
+      DeosntExist: "<prefix> &cThat player isnt existing!"
+      
+      NoJob: "<prefix> &cThat Job doesnt exist!"
+      
+      Added: "<prefix> &7Added Job Level of &a<name> &7- &b<l>&7!"
+      
+      NotInt: "<prefix> &cThe Level must be a int!"
+      
+      DontOwn: "<prefix> &7The player &b<name> &7dont own the Job &a<job>&7!"
+      
+    SetExp:
+    
+      Use: true
+      
+      Disabled: "<prefix> &cThis Command args is disabled!"
+    
+      Usage: "setexp"
+ 
+      Permission: "ultimatejobs.command.setlevel"
+    
+      NoPermMessage: "<prefix> &cYou dont have permissions for this!"
+      
+      DeosntExist: "<prefix> &cThat player isnt existing!"
+      
+      NoJob: "<prefix> &cThat Job doesnt exist!"
+      
+      Set: "<prefix> &7Set Job Exp of &a<name> &7to &b<l>&7!"
+      
+      NotInt: "<prefix> &cThe Exp must be a int!"
+      
+      DontOwn: "<prefix> &7The player &b<name> &7dont own the Job &a<job>&7!"
+      
+    RemExp:
+    
+      Use: true
+      
+      Disabled: "<prefix> &cThis Command args is disabled!"
+    
+      Usage: "remlevel"
+ 
+      Permission: "ultimatejobs.command.setlevel"
+    
+      NoPermMessage: "<prefix> &cYou dont have permissions for this!"
+      
+      DeosntExist: "<prefix> &cThat player isnt existing!"
+      
+      NoJob: "<prefix> &cThat Job doesnt exist!"
+      
+      Removed: "<prefix> &7Removed Job Exp of &a<name> &7- &b<l>&7!"
+      
+      NotInt: "<prefix> &cThe Exp must be a int!"
+      
+      DontOwn: "<prefix> &7The player &b<name> &7dont own the Job &a<job>&7!"
+      
+    AddExp:
+    
+      Use: true
+      
+      Disabled: "<prefix> &cThis Command args is disabled!"
+    
+      Usage: "addlevel"
+ 
+      Permission: "ultimatejobs.command.setlevel"
+    
+      NoPermMessage: "<prefix> &cYou dont have permissions for this!"
+      
+      DeosntExist: "<prefix> &cThat player isnt existing!"
+      
+      NoJob: "<prefix> &cThat Job doesnt exist!"
+      
+      Added: "<prefix> &7Added Job Exp of &a<name> &7- &b<l>&7!"
+      
+      NotInt: "<prefix> &cThe Exp must be a int!"
+      
+      DontOwn: "<prefix> &7The player &b<name> &7dont own the Job &a<job>&7!"
+      
+    SetLimit:
+    
+      Use: true
+      
+      Disabled: "<prefix> &cThis Command args is disabled!"
+    
+      Usage: "setlimit"
+ 
+      Permission: "ultimatejobs.command.setlevel"
+    
+      NoPermMessage: "<prefix> &cYou dont have permissions for this!"
+      
+      DeosntExist: "<prefix> &cThat player isnt existing!"
+ 
+      Set: "<prefix> &7Set Job Limit of &a<name> &7- &b<l>&7!"
+      
+      NotInt: "<prefix> &cThe Exp must be a int!"
+      
+    AddLimit:
+    
+      Use: true
+      
+      Disabled: "<prefix> &cThis Command args is disabled!"
+    
+      Usage: "addlimit"
+ 
+      Permission: "ultimatejobs.command.setlevel"
+    
+      NoPermMessage: "<prefix> &cYou dont have permissions for this!"
+      
+      DeosntExist: "<prefix> &cThat player isnt existing!"
+ 
+      Added: "<prefix> &7Added Job Limit of &a<name> &7- &b<l>&7!"
+      
+      NotInt: "<prefix> &cThe Exp must be a int!"
+      
+    RemLimit:
+    
+      Use: true
+      
+      Disabled: "<prefix> &cThis Command args is disabled!"
+    
+      Usage: "remlimit"
+ 
+      Permission: "ultimatejobs.command.setlevel"
+    
+      NoPermMessage: "<prefix> &cYou dont have permissions for this!"
+      
+      DeosntExist: "<prefix> &cThat player isnt existing!"
+ 
+      Removed: "<prefix> &7Removed Job Limit of &a<name> &7- &b<l>&7!"
+      
+      NotInt: "<prefix> &cThe Exp must be a int!"
+        
+  Stats:
+  
+    Use: true
+    
+    Disabled: "<prefix> &cThis Command args is disabled!"
+    
+    Usage: "stats"
+    
+    #
+    # Choose between:
+    # "CURRENT" -> displays all jobs which the player is in
+    # "ALL" -> displays all jobs which the player have
+    #
+    Mode: "CURRENT"
+ 
+    Permission: "ultimatejobs.command.stats"
+    
+    NoPermMessage: "<prefix> &cYou dont have permissions for this!"
+    
+    DeosntExist: "<prefix> &cThat player isnt existing!"
+    
+    List: "&7Infos about <job>&8:\n&8| &7Job Level&8: <level_as_string> &8/ &c#<level_as_int> \n&8| &7Job Exp&8: &7<exp> Exp
+    \n&8| &7Next Level&8: &7<need> Exp needed\n&7\n&8| &7<st1>&8: &b<c1> &7<id_1>"
+ 
+    Message_1:
+      - "&7"
+      - "&8« &m-------------&8[ &bStats &8- &7<name> &8]&m-------------&r &8»"
+      - "&7"
+      - "&8-> &7Hover to see more Informations&8:"
+    
+    Message_2:
+      - "&7"
+      - "&8« &m-------------&8[ &bStats &8- &7<name> &8]&m-------------&r &8»"
+      - "&7"
+    
+    Format: "&8| <job> &8- <level_as_name> &8/ &c#<level_as_int>"
+
+  Limit:
+  
+    Use: true
+    
+    Disabled: "<prefix> &cThis Command args is disabled!"
+    
+    Usage: "limit"
+ 
+    Permission: "ultimatejobs.command.limit"
+    
+    NoPermMessage: "<prefix> &cYou dont have permissions for this!"
+ 
+    Message: "<prefix> &7You can have &b<count> &7Jobs at one time! &8(&7<current>&8/&b<count>&8)"
+  
+  LeaveALL:
+  
+    Use: true
+    
+    Disabled: "<prefix> &cThis Command args is disabled!"
+    
+    Usage: "leaveall"
+ 
+    Permission: "ultimatejobs.command.leaveall"
+    
+    NoPermMessage: "<prefix> &cYou dont have permissions for this!"
+ 
+    NotInAny: "<prefix> &cYou already have none jobs!"
+ 
+    Left: "<prefix> &7You left all current Jobs! &8(&b<count> Jobs&8)"
+
+  Leave:
+  
+    Use: true
+    
+    Disabled: "<prefix> &cThis Command args is disabled!"
+    
+    Usage: "leave"
+ 
+    Permission: "ultimatejobs.command.leave"
+    
+    NoPermMessage: "<prefix> &cYou dont have permissions for this!"
+    
+    NoJob: "<prefix> &7This job was not found!"
+    
+    Not_InJob: "<prefix> &cYou are not in that Job!"
+ 
+    Left: "<prefix> &7You left the Job <job>&7!"
+
+  Join:
+  
+    Use: true
+    
+    Disabled: "<prefix> &cThis Command args is disabled!"
+    
+    Usage: "join"
+ 
+    Permission: "ultimatejobs.command.join"
+    
+    NoPermMessage: "<prefix> &cYou dont have permissions for this!"
+    
+    NoJob: "<prefix> &7This job was not found!"
+    
+    Dont_Own: "<prefix> &cYou dont own this Job!"
+    
+    Already: "<prefix> &cYou are already in that Job!"
+    
+    Max: "<prefix> &cYou already have reached the maximum Jobs!"
+    
+    Joined: "<prefix> &7You joined the Job <job>&7!"
+
+  Browse:
+  
+    Use: true
+    
+    Disabled: "<prefix> &cThis Command args is disabled!"
+    
+    Usage: "browse"
+ 
+    Permission: "ultimatejobs.command.browse"
+    
+    NoPermMessage: "<prefix> &cYou dont have permissions for this!"
+    
+    Message: "&8-> &7List of all Jobs&8: &8(&b<count>&8)"
+    
+    Format: "&8| <job> &8- <state>"
+    
+    States:
+      
+      Own: "&aYou own this Job"
+      
+      Price: "&cBuy this Job for <price> Dollars"
+      
+      In: "&7You are in the Job"
+
+  Info:
+  
+    Use: true
+    
+    Disabled: "<prefix> &cThis Command args is disabled!"
+    
+    Usage: "info"
+ 
+    Permission: "ultimatejobs.command.info"
+    
+    NoPermMessage: "<prefix> &cYou dont have permissions for this!"
+    
+    Message: "&8-> &7Infos about the Job <job>&8:"
+    
+    Format: "&8| <block> &7equals to &b<dollar> Dollars"
+    
+    NoJob: "<prefix> &7This job was not found!"
+
   Help:
   
     Use: true
     
-    Disabled: "&cThis Command args is disabled!"
+    Disabled: "<prefix> &cThis Command args is disabled!"
     
     Usage: "help"
     
     Permission: "ultimatejobs.command.help"
     
-    NoPermMessage: "&cYou dont have permissions for this!"
+    NoPermMessage: "<prefix> &cYou dont have permissions for this!"
  
-    PageNotFound: "&cThe Page <page> doesnt exist!"
+    PageNotFound: "<prefix> &cThe Page <page> doesnt exist!"
     
-    NotNumber: "&cPlease use /Jobs help <number>"
+    NotNumber: "<prefix> &cPlease use /Jobs help <number>"
  
     Page_2:
       - "&7"
@@ -38,9 +444,14 @@ Command:
       - "&8| &b/Jobs admin addjob <name> <job> &8» &7Add Job to Player"
       - "&8| &b/Jobs admin remjob <name> <job> &8» &7Remove Job from Player"
       - "&8| &b/Jobs admin setlevel <name> <job> <level> &8» &7Set Level of Player"
+      - "&8| &b/Jobs admin remlevel <name> <job> <level> &8» &7Remove Level of Player"
+      - "&8| &b/Jobs admin addlevel <name> <job> <level> &8» &7Add Level of Player"
       - "&8| &b/Jobs admin setexp <name> <job> <exp> &8» &7Set Exp of Player"
-      - "&8| &b/Jobs admin setpoints <name> <job> <points> &8» &7Set Points of Player"
+      - "&8| &b/Jobs admin remexp <name> <job> <exp> &8» &7Remove Exp of Player"
+      - "&8| &b/Jobs admin addexp <name> <job> <exp> &8» &7Add Exp of Player"
       - "&8| &b/Jobs admin setlimit <name> <job_limit> &8» &7Set the Jobs Limit"
+      - "&8| &b/Jobs admin addlimit <name> <job_limit> &8» &7Add Jobs Limit"
+      - "&8| &b/Jobs admin remlimit <name> <job_limit> &8» &7Remove Jobs Limit"
       - "&7"
       - "&8« &m-------------&8[ &bUltimateJobs &8- &7Help &8- &b2 &8]&m-------------&r &8»"
       - "&7"
@@ -53,13 +464,11 @@ Command:
       - "&8| &b/Jobs info <job> &8» &7See the Rewards"
       - "&8| &b/Jobs browse &8» &7List all possible Jobs"
       - "&8| &b/Jobs join <job> &8» &7Join a Job"
-      - "&8| &b/Jobs leave <job> &8» &7Leave a Job"
-      - "&8| &b/Jobs buy <job> &8» &7Buy a Job"
-      - "&8| &b/Jobs leaveall &8» &7Watch your Job limit"
+      - "&8| &b/Jobs leave <job> &8» &7Leave a Job" 
+      - "&8| &b/Jobs leaveall &8» &7Leave all Jobs"
+      - "&8| &b/Jobs limit &8» &7Watch your Job limit"
       - "&8| &b/Jobs points <name> &8» &7Watch player Points"
-      - "&8| &b/Jobs stats <name> &8» &7Watch Job Stats"
-      - "&8| &b/Jobs level <name>  &8» &7Watch Job Level"
-      - "&8| &b/Jobs exp <name> &8» &7Watch Job Exp"
+      - "&8| &b/Jobs stats <name> &8» &7Watch Job Stats" 
       - "&7"
       - "&8« &m-------------&8[ &bUltimateJobs &8- &7Help &8- &b1 &8]&m-------------&r &8»"
       - "&7"

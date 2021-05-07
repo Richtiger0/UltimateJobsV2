@@ -12,9 +12,9 @@
 
 Translation:
 
-  Prefix: "#14FFAAJobs &8-> &7"
+  Prefix: "#14FFAAJobs &8|"
   
-  Not_Enough: "&cYou dont have enough Money to buy this job!"
+  Not_Enough: " &cYou dont have enough Money to buy this job!"
 
   GUI_None_Jobs: "&6None"
   
@@ -22,13 +22,13 @@ Translation:
   
   GUI_Vanilla_Translation: "Vanilla Exp"
   
-  LeftJob: "&cYou have left the Job <job>&7!"
+  LeftJob: " &cYou have left the Job <job>&7!"
   
-  LeftALL: "&cYou have left all current Jobs!"
+  LeftALL: " &cYou have left all current Jobs!"
   
-  Joined: "&7You joined the Job <job>&7!"
+  Joined: " &7You joined the Job <job>&7!"
   
-  TooManyJobs: "&cYou are currently in too many jobs!"
+  TooManyJobs: " &cYou are currently in too many jobs!"
   
 Levels:
 

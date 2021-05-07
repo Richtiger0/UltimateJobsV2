@@ -53,7 +53,7 @@ public class PlayerClickAtMainInventory implements Listener {
 				
 				if(dis.equalsIgnoreCase(display)) {
 				 
-						if(!plugin.getPlayerAPI().getOwn(""+p.getUniqueId()).contains(job)) {
+						if(!plugin.getPlayerAPI().getOwn(""+p.getUniqueId()).contains(job.toUpperCase())) {
 							String mode = plugin.getAPI().getJobPriceMode(job);
 							String price = plugin.getAPI().getJobPriceAsPrice(job);
 							

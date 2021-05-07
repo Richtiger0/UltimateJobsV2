@@ -36,6 +36,18 @@ public class JobAPI {
 	    return d.intValue();
 	}
 	
+		public List<String> getIDList(String job) {
+			YamlConfiguration cfg = getConfigOfJob(job);
+	 
+			return cfg.getStringList("IDS.LIST");
+		}
+		
+		public String getNameOfBlock(String job, String block) {
+			YamlConfiguration cfg = getConfigOfJob(job);
+	 
+			return cfg.getString("IDS."+block+".Display");
+		}
+	  
 	public int getChanceOfID(String job, String id) {
 		YamlConfiguration cfg = getConfigOfJob(job);
  
@@ -277,6 +289,52 @@ public class JobAPI {
         }
 
         return motd;
+    }
+    
+    public ArrayList<String> getJobsWithConfigIDSHigh() {
+    	ArrayList<String> list = new ArrayList<String>();
+    	
+    	List<String> jobs = UltimateJobs.getJobsListConfig().getStringList("Jobs");
+		
+		for(String job : jobs) {
+			
+			if(getConfigOfJob(job.toUpperCase()) == null) {
+				 UltimateJobs.getPlugin().getLogger().warning("§cThe Config for Job §a"+job.toUpperCase()+" §cdoesnt exist!");
+					 
+			}
+			
+			YamlConfiguration config = getConfigOfJob(job.toUpperCase());
+			
+			 list.add(config.getString("ID").toUpperCase());
+			
+		}
+		
+    	return list;
+    }
+    
+    public ArrayList<String> getJobsWithConfigIDS() {
+    	ArrayList<String> list = new ArrayList<String>();
+    	
+    	List<String> jobs = UltimateJobs.getJobsListConfig().getStringList("Jobs");
+		
+		for(String job : jobs) {
+			
+			if(getConfigOfJob(job.toUpperCase()) == null) {
+				 UltimateJobs.getPlugin().getLogger().warning("§cThe Config for Job §a"+job.toUpperCase()+" §cdoesnt exist!");
+					 
+			}
+			
+			YamlConfiguration config = getConfigOfJob(job.toUpperCase());
+			
+			 list.add(config.getString("ID"));
+			
+		}
+		
+    	return list;
+    }
+    
+    public boolean existJobWithConfigID(String job) {
+    	return getJobsWithConfigIDSHigh().contains(job.toUpperCase());
     }
     
 	public ArrayList<String> getJobsWithAction(Action at) {

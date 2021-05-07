@@ -46,6 +46,8 @@ public class PlayerBreakBlockEvent implements Listener {
 						 
 						plugin.getRewardAPI().addRewardAndSendMessage(job, player, id);
 						
+						plugin.getPlayerAPI().addCount1(UUID, job, 1);
+						
 					}
 					
 				}

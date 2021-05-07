@@ -17,6 +17,7 @@ public class PlayerExistEvent implements Listener {
 		if(!plugin.getPlayerAPI().existPlayer(uuid)) {
 			plugin.getPlayerAPI().createPlayer(uuid);
 		}
+		plugin.getPlayerAPI().UpdateFetcher(uuid, player.getName());
 	}
 
 }
