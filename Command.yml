@@ -34,7 +34,7 @@ Command:
     
       Usage: "blockinfo"
  
-      Permission: "ultimatejobs.command.stats"
+      Permission: "ultimatejobs.command.blockinfo"
     
       NoPermMessage: "<prefix> &cYou dont have permissions for this!"
       
@@ -53,7 +53,7 @@ Command:
     
       Usage: "addjob"
  
-      Permission: "ultimatejobs.command.add"
+      Permission: "ultimatejobs.command.addjob"
     
       NoPermMessage: "<prefix> &cYou dont have permissions for this!"
       
@@ -73,7 +73,7 @@ Command:
     
       Usage: "remjob"
  
-      Permission: "ultimatejobs.command.remove"
+      Permission: "ultimatejobs.command.remjob"
     
       NoPermMessage: "<prefix> &cYou dont have permissions for this!"
       
@@ -115,7 +115,7 @@ Command:
     
       Usage: "remlevel"
  
-      Permission: "ultimatejobs.command.setlevel"
+      Permission: "ultimatejobs.command.remlevel"
     
       NoPermMessage: "<prefix> &cYou dont have permissions for this!"
       
@@ -137,7 +137,7 @@ Command:
     
       Usage: "addlevel"
  
-      Permission: "ultimatejobs.command.setlevel"
+      Permission: "ultimatejobs.command.addlevel"
     
       NoPermMessage: "<prefix> &cYou dont have permissions for this!"
       
@@ -159,7 +159,7 @@ Command:
     
       Usage: "setexp"
  
-      Permission: "ultimatejobs.command.setlevel"
+      Permission: "ultimatejobs.command.setexp"
     
       NoPermMessage: "<prefix> &cYou dont have permissions for this!"
       
@@ -179,9 +179,9 @@ Command:
       
       Disabled: "<prefix> &cThis Command args is disabled!"
     
-      Usage: "remlevel"
+      Usage: "remexp"
  
-      Permission: "ultimatejobs.command.setlevel"
+      Permission: "ultimatejobs.command.remexp"
     
       NoPermMessage: "<prefix> &cYou dont have permissions for this!"
       
@@ -201,9 +201,9 @@ Command:
       
       Disabled: "<prefix> &cThis Command args is disabled!"
     
-      Usage: "addlevel"
+      Usage: "addexp"
  
-      Permission: "ultimatejobs.command.setlevel"
+      Permission: "ultimatejobs.command.addexp"
     
       NoPermMessage: "<prefix> &cYou dont have permissions for this!"
       
@@ -225,7 +225,7 @@ Command:
     
       Usage: "setlimit"
  
-      Permission: "ultimatejobs.command.setlevel"
+      Permission: "ultimatejobs.command.setlimit"
     
       NoPermMessage: "<prefix> &cYou dont have permissions for this!"
       
@@ -243,7 +243,7 @@ Command:
     
       Usage: "addlimit"
  
-      Permission: "ultimatejobs.command.setlevel"
+      Permission: "ultimatejobs.command.addlimit"
     
       NoPermMessage: "<prefix> &cYou dont have permissions for this!"
       
@@ -261,7 +261,7 @@ Command:
     
       Usage: "remlimit"
  
-      Permission: "ultimatejobs.command.setlevel"
+      Permission: "ultimatejobs.command.remlimit"
     
       NoPermMessage: "<prefix> &cYou dont have permissions for this!"
       

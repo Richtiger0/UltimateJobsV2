@@ -42,9 +42,13 @@ public class PlayerJobCommand implements CommandExecutor {
 			int size = plugin.getJobsGUIConfig().getInt("Size");
 			 
 			p.openInventory(UltimateJobs.getBuilder().createGui(p, 9*size, plugin.getAPI().toHex(name)));
+			plugin.getBuilder().setCustomItemsInInventory(p.getOpenInventory(), p, plugin.getJobsGUIConfig(), "Custom_Items", "Custom_Items_Used", plugin.getJobsGUIConfig().getStringList("PlaceHolders"));
+			 
+		 
 			plugin.getBuilder().setJobsItems(p.getOpenInventory(), p);
-			plugin.getBuilder().setPlaceHolderItems(p.getOpenInventory(), p, plugin.getJobsGUIConfig().getStringList("PlaceHolders"));
-			plugin.getBuilder().setCustomItemsInInventory(p.getOpenInventory(), p, plugin.getJobsGUIConfig(), "Custom_Items", "Custom_Items_Used");
+	 
+		 
+		 
 			return true;
 		} else 	if(length == 1
 				&& args[0].equalsIgnoreCase(cmd.getString("Command.Help.Usage"))) {

@@ -44,6 +44,11 @@ public class UltimateJobs extends JavaPlugin {
 	private static YamlConfiguration cmd;
 	
 	@Override
+	public void onLoad() {
+ 
+	}
+	
+	@Override
 	public void onEnable() {
 		
 		plugin  = this;

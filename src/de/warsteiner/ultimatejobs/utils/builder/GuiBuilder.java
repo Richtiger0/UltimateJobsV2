@@ -62,7 +62,7 @@ public class GuiBuilder {
 							if(mode.equalsIgnoreCase("CLOSE")) {
 								p.closeInventory();
 							} else 	if(mode.equalsIgnoreCase("REOPEN")) {
-								plugin.getBuilder().setCustomItemsInInventory(p.getOpenInventory(), p, plugin.getJobsGUIConfig(), "Custom_Items", "Custom_Items_Used");
+								plugin.getBuilder().setCustomItemsInInventory(p.getOpenInventory(), p, plugin.getJobsGUIConfig(), "Custom_Items", "Custom_Items_Used", plugin.getJobsGUIConfig().getStringList("PlaceHolders"));
 								plugin.getBuilder().setJobsItems(p.getOpenInventory(), p);
 							}
 							
@@ -82,9 +82,9 @@ public class GuiBuilder {
 						int size = plugin.getJobsGUIConfig().getInt("Size");
 						 
 						p.openInventory(UltimateJobs.getBuilder().createGui(p, 9*size, plugin.getAPI().toHex(name)));
+					 
+						plugin.getBuilder().setCustomItemsInInventory(p.getOpenInventory(), p, plugin.getJobsGUIConfig(), "Custom_Items", "Custom_Items_Used", plugin.getJobsGUIConfig().getStringList("PlaceHolders"));
 						plugin.getBuilder().setJobsItems(p.getOpenInventory(), p);
-						plugin.getBuilder().setPlaceHolderItems(p.getOpenInventory(), p, plugin.getJobsGUIConfig().getStringList("PlaceHolders"));
-						plugin.getBuilder().setCustomItemsInInventory(p.getOpenInventory(), p, plugin.getJobsGUIConfig(), "Custom_Items", "Custom_Items_Used");
 						return;
 					} else if(action.equalsIgnoreCase("LEAVE")) {
 						
@@ -94,9 +94,12 @@ public class GuiBuilder {
 						int size = plugin.getJobsGUIConfig().getInt("Size");
 						 
 						p.openInventory(UltimateJobs.getBuilder().createGui(p, 9*size, plugin.getAPI().toHex(name)));
-						plugin.getBuilder().setJobsItems(p.getOpenInventory(), p);
-						plugin.getBuilder().setPlaceHolderItems(p.getOpenInventory(), p, plugin.getJobsGUIConfig().getStringList("PlaceHolders"));
-						plugin.getBuilder().setCustomItemsInInventory(p.getOpenInventory(), p, plugin.getJobsGUIConfig(), "Custom_Items", "Custom_Items_Used");
+						if(mode.equalsIgnoreCase("CLOSE")) {
+							p.closeInventory();
+						} else 	if(mode.equalsIgnoreCase("REOPEN")) {
+							plugin.getBuilder().setCustomItemsInInventory(p.getOpenInventory(), p, plugin.getJobsGUIConfig(), "Custom_Items", "Custom_Items_Used", plugin.getJobsGUIConfig().getStringList("PlaceHolders"));
+							plugin.getBuilder().setJobsItems(p.getOpenInventory(), p);
+						}
 						return;
 					}
 					
@@ -122,8 +125,9 @@ public class GuiBuilder {
 						meta.setDisplayName(display.replaceAll("&", "§"));
 						item.setItemMeta(meta);
 				 
-					
-					inventory.setItem(slot, item);
+						inventory.setItem(slot, null);
+						inventory.setItem(slot, item);
+					 
 					
 				}
 				
@@ -131,8 +135,9 @@ public class GuiBuilder {
 		}.runTaskAsynchronously(UltimateJobs.getPlugin()); 
 	}
 	
-	public void setCustomItemsInInventory(InventoryView inventory, Player p, YamlConfiguration config, String path2, String path3) {
+	public void setCustomItemsInInventory(InventoryView inventory, Player p, YamlConfiguration config, String path2, String path3, List<String> list) {
 		UltimateJobs plugin = UltimateJobs.getPlugin();
+		setPlaceHolderItems(inventory, p, list);
 		new BukkitRunnable() {
 			
 			@Override
@@ -177,8 +182,10 @@ public class GuiBuilder {
 							 b = false;
 						 }
 					}
-					inventory.setItem(slot, null);
+					 
+
 					if(b) {
+						inventory.setItem(slot, null);
 						inventory.setItem(slot, item);
 					}
 					 
