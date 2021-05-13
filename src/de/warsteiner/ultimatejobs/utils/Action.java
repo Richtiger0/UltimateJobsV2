@@ -8,6 +8,7 @@ public enum Action {
 	FISH,
 	MILK,
 	HONEY,
+	EAT,
 	SHEAR,
 	CRAFT;
 

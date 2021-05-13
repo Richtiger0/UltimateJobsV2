@@ -1,0 +1,103 @@
+Action: "HONEY"
+
+Display: "&6Honey Farmer"
+
+ID: "Honey"
+ 
+Material: "GLASS_BOTTLE"
+
+Slot: 14
+
+Price:
+
+  Mode: "VAULT"
+
+  Price: "25000"
+
+ItemFlag:
+  - "HIDE_ATTRIBUTES"
+  - "HIDE_ENCHANTS"
+
+Worlds:
+  - "world"
+
+Translation:
+
+  Stats_Part_1: "Honey Bottles"
+
+  Stats_Part_1_ID: "Bottles"
+
+IDS:
+
+  LIST:
+    - "GLASS_BOTTLE"
+
+  GLASS_BOTTLE:
+
+    Display: "&6Honey Bottle"
+ 
+    Reward: 2.50
+
+    Exp: 10
+
+    Vanilla: 1
+
+    Points: 1
+
+    Chance: 80
+ 
+Levels:
+
+  L1:
+  
+    Display: "&6Tier I"
+
+    Need: 200
+
+    Reward: "COMMAND_LIST"
+
+    Commands:
+      - "eco give <name> 100"
+
+  L2:
+  
+    Display: "&6Tier II"
+
+    Need: 300
+
+    Reward: "COMMAND_LIST"
+
+    Commands:
+      - "eco give <name> 200"
+
+  L3:
+  
+    Display: "&6Tier III"
+
+    Need: 400
+
+    Reward: "COMMAND_LIST"
+
+    Commands:
+      - "eco give <name> 300"
+
+  L4:
+  
+    Display: "&6Tier IV"
+
+    Need: 600
+
+    Reward: "COMMAND_LIST"
+
+    Commands:
+      - "eco give <name> 1000"
+
+  L5:
+  
+    Display: "&6Tier V &8- &cMax Level"
+
+    Need: Max
+ 
+
+    
+

@@ -11,11 +11,11 @@ import de.warsteiner.ultimatejobs.utils.api.other.BossBarHandler;
 
 public class RewardAPI {
 	
-	public void addRewardAndSendMessage(String job, Player player, String id) {
+	public void addRewardAndSendMessage(String job, Player player, String id, int amount) {
 		
 		UltimateJobs plugin = UltimateJobs.getPlugin();
 		
-		double money = plugin.getAPI().getRewardOfID(job, id);
+		double money = plugin.getAPI().getRewardOfID(job, id) * amount;
 		int vanilla = plugin.getAPI().getVanillaOfID(job, id);
 		double exp = plugin.getAPI().getExpofID(job, id);
 		

@@ -18,7 +18,13 @@ import de.warsteiner.ultimatejobs.events.gui.PlayerClickAtMainInventory;
 import de.warsteiner.ultimatejobs.events.gui.PlayerClickAtOptionsInventory;
 import de.warsteiner.ultimatejobs.events.jobs.ActionBlockBreak;
 import de.warsteiner.ultimatejobs.events.jobs.ActionBlockPlace;
+import de.warsteiner.ultimatejobs.events.jobs.ActionCraft;
+import de.warsteiner.ultimatejobs.events.jobs.ActionEat;
+import de.warsteiner.ultimatejobs.events.jobs.ActionFish;
+import de.warsteiner.ultimatejobs.events.jobs.ActionHoney;
 import de.warsteiner.ultimatejobs.events.jobs.ActionKillMob;
+import de.warsteiner.ultimatejobs.events.jobs.ActionMilk;
+import de.warsteiner.ultimatejobs.events.jobs.ActionShear;
 import de.warsteiner.ultimatejobs.utils.api.JobAPI;
 import de.warsteiner.ultimatejobs.utils.api.LevelAPI;
 import de.warsteiner.ultimatejobs.utils.api.PlayerAPI;
@@ -151,6 +157,12 @@ public class UltimateJobs extends JavaPlugin {
 	     Bukkit.getPluginManager().registerEvents(new ActionBlockBreak(), this);
 	     Bukkit.getPluginManager().registerEvents(new ActionBlockPlace(), this);
 	     Bukkit.getPluginManager().registerEvents(new ActionKillMob(), this);
+	     Bukkit.getPluginManager().registerEvents(new ActionFish(), this);
+	     Bukkit.getPluginManager().registerEvents(new ActionMilk(), this);
+	     Bukkit.getPluginManager().registerEvents(new ActionHoney(), this);
+	     Bukkit.getPluginManager().registerEvents(new ActionEat(), this);
+	     Bukkit.getPluginManager().registerEvents(new ActionShear(), this);
+	     Bukkit.getPluginManager().registerEvents(new ActionCraft(), this);
 	     
 	     Bukkit.getPluginManager().registerEvents(new PlayerBlockPlaceEventAddFlag(), this);
 	     //other events

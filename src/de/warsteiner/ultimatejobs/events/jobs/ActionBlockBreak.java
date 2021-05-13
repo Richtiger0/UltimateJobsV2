@@ -50,7 +50,7 @@ public class ActionBlockBreak implements Listener {
 					
 					if(api.getReward(job, id)) {
 						 
-						plugin.getRewardAPI().addRewardAndSendMessage(job, player, id);
+						plugin.getRewardAPI().addRewardAndSendMessage(job, player, id, 1);
 						
 						plugin.getPlayerAPI().addCount1(UUID, job, 1);
 						

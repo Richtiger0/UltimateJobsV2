@@ -47,7 +47,7 @@ public class ActionKillMob implements Listener {
 						
 						if(api.getReward(job, id)) {
 							 
-							plugin.getRewardAPI().addRewardAndSendMessage(job, killer, id);
+							plugin.getRewardAPI().addRewardAndSendMessage(job, killer, id,1);
 							
 							plugin.getPlayerAPI().addCount1(UUID, job, 1);
 							
