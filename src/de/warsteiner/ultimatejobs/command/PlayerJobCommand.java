@@ -1029,6 +1029,8 @@ public class PlayerJobCommand implements CommandExecutor {
 			            							return true;
 							 
 													
+									} else {
+										p.sendMessage(plugin.getAPI().toHex(cmd.getString("Command.Usage").replaceAll("<prefix>", prefix).replaceAll("&", "§")));
 									}
 		
 		return false;

@@ -14,6 +14,8 @@ TabComplete: true
 
 Command:
 
+  Usage: "<prefix> &7Please use /Jobs help"
+
   Admin:
   
     Use: true
