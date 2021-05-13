@@ -31,6 +31,14 @@ public class JobAPI {
 		 return b;
 		 
 	}
+	
+	public boolean canWorkInWorld(String world, String job) {
+		UltimateJobs plugin = UltimateJobs.getPlugin();
+		YamlConfiguration cfg = plugin.getAPI().getConfigOfJob(job);
+		
+		return cfg.getStringList("Worlds").contains(world); 
+	}
+
   
 	public int doubleToInt(Double d) {
 	    return d.intValue();
@@ -59,6 +67,7 @@ public class JobAPI {
  
 		return cfg.getInt("IDS."+id+".Points");
 	}
+ 
 	
 	public int getVanillaOfID(String job, String id) {
 		YamlConfiguration cfg = getConfigOfJob(job);

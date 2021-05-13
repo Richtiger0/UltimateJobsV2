@@ -1,12 +1,12 @@
-Action: "BREAK"
+Action: "KILL_MOB"
 
-Display: "#2898FAMiner"
+Display: "&cKiller"
 
-ID: "Miner"
+ID: "Killer"
  
-Material: "IRON_PICKAXE"
+Material: "IRON_SWORD"
 
-Slot: 10
+Slot: 12
 
 Price:
 
@@ -23,50 +23,20 @@ Worlds:
 
 Translation:
 
-  Stats_Part_1: "Destroyed Blocks"
+  Stats_Part_1: "Killed Mobs"
 
-  Stats_Part_1_ID: "Blocks"
+  Stats_Part_1_ID: "Mobs"
 
 IDS:
 
   LIST:
-    - "STONE"
-    - "COBBLESTONE"
-    - "IRON_ORE" 
+    - "ZOMBIE"
+ 
+  ZOMBIE:
 
-  IRON_ORE: 
-
-    Display: "&bIron Ore"
-
+    Display: "&aZombie "
+ 
     Reward: 1.50
-
-    Exp: 2.50
-
-    Vanilla: 1
-
-    Points: 1
-
-    Chance: 80
-
-  COBBLESTONE: 
-
-    Display: "&bCobblestone"
-
-    Reward: 0.50
-
-    Exp: 2.50
-
-    Vanilla: 1
-
-    Points: 1
-
-    Chance: 80
-  
-  STONE: 
-
-    Display: "&bStone"
-
-    Reward: 0.50
 
     Exp: 2.50
 

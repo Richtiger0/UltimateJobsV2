@@ -11,13 +11,14 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import de.warsteiner.ultimatejobs.command.PlayerJobCommand;
 import de.warsteiner.ultimatejobs.command.PlayerJobTabComplete;
-import de.warsteiner.ultimatejobs.events.PlayerBlockPlaceEvent;
 import de.warsteiner.ultimatejobs.events.PlayerBlockPlaceEventAddFlag;
-import de.warsteiner.ultimatejobs.events.PlayerBreakBlockEvent;
 import de.warsteiner.ultimatejobs.events.PlayerExistEvent;
 import de.warsteiner.ultimatejobs.events.PlayerLevelCheckEvent;
 import de.warsteiner.ultimatejobs.events.gui.PlayerClickAtMainInventory;
 import de.warsteiner.ultimatejobs.events.gui.PlayerClickAtOptionsInventory;
+import de.warsteiner.ultimatejobs.events.jobs.ActionBlockBreak;
+import de.warsteiner.ultimatejobs.events.jobs.ActionBlockPlace;
+import de.warsteiner.ultimatejobs.events.jobs.ActionKillMob;
 import de.warsteiner.ultimatejobs.utils.api.JobAPI;
 import de.warsteiner.ultimatejobs.utils.api.LevelAPI;
 import de.warsteiner.ultimatejobs.utils.api.PlayerAPI;
@@ -147,8 +148,9 @@ public class UltimateJobs extends JavaPlugin {
         data.create();
         
         //job events
-	     Bukkit.getPluginManager().registerEvents(new PlayerBreakBlockEvent(), this);
-	     Bukkit.getPluginManager().registerEvents(new PlayerBlockPlaceEvent(), this);
+	     Bukkit.getPluginManager().registerEvents(new ActionBlockBreak(), this);
+	     Bukkit.getPluginManager().registerEvents(new ActionBlockPlace(), this);
+	     Bukkit.getPluginManager().registerEvents(new ActionKillMob(), this);
 	     
 	     Bukkit.getPluginManager().registerEvents(new PlayerBlockPlaceEventAddFlag(), this);
 	     //other events

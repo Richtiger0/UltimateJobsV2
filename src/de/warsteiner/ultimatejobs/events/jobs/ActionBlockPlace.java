@@ -1,4 +1,4 @@
-package de.warsteiner.ultimatejobs.events;
+package de.warsteiner.ultimatejobs.events.jobs;
 
 import java.util.ArrayList;
 
@@ -13,7 +13,7 @@ import de.warsteiner.ultimatejobs.UltimateJobs;
 import de.warsteiner.ultimatejobs.utils.Action;
 import de.warsteiner.ultimatejobs.utils.api.JobAPI;
 
-public class PlayerBlockPlaceEvent implements Listener {
+public class ActionBlockPlace implements Listener {
 
 	@EventHandler
 	public void onBreak(BlockPlaceEvent event) { 
@@ -27,10 +27,16 @@ public class PlayerBlockPlaceEvent implements Listener {
 		if(event.isCancelled()) {
 			return;
 		}
-  
+		
+		String world = player.getLocation().getWorld().getName();
+		 
 		ArrayList<String> jobs = api.getJobsWithAction(Action.PLACE);
 		
 		for(String job : jobs) {
+		
+			if(!api.canWorkInWorld(world, job)) {
+				return;
+			}
 			
 			if(plugin.getPlayerAPI().isInJob(UUID, job)) {
 			 
