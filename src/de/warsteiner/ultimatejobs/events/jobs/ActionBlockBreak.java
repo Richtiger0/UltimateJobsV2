@@ -11,7 +11,8 @@ import org.bukkit.event.block.BlockBreakEvent;
 
 import de.warsteiner.ultimatejobs.UltimateJobs;
 import de.warsteiner.ultimatejobs.utils.Action;
-import de.warsteiner.ultimatejobs.utils.api.JobAPI; 
+import de.warsteiner.ultimatejobs.utils.api.JobAPI;
+import de.warsteiner.ultimatejobs.utils.api.WorldGuardManager; 
 
 public class ActionBlockBreak implements Listener {
 
@@ -30,6 +31,10 @@ public class ActionBlockBreak implements Listener {
 		
 	 	if(block.hasMetadata("placed-by-player")) {
 		 	return;
+	 	}
+	  
+	 	if(!api.canWorkInRegion(player, "action-break")) {
+	 		return;
 	 	}
 	 	
 	 	String world = player.getLocation().getWorld().getName();

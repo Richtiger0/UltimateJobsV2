@@ -14,6 +14,7 @@ import org.bukkit.event.player.PlayerInteractEvent;
 
 import de.warsteiner.ultimatejobs.UltimateJobs;
 import de.warsteiner.ultimatejobs.utils.api.JobAPI;
+import de.warsteiner.ultimatejobs.utils.api.WorldGuardManager;
  
 
 public class ActionHoney implements Listener {
@@ -32,6 +33,9 @@ public class ActionHoney implements Listener {
 	   Action action = event.getAction();
 	   Block clickedBlock = event.getClickedBlock();
  
+	   if(!api.canWorkInRegion(player, "action-honey")) {
+	 		return;
+	 	}
  
 	 if (action == Action.RIGHT_CLICK_BLOCK && clickedBlock != null && (
 			clickedBlock.getType().equals(Material.BEEHIVE) || clickedBlock.getType().equals(Material.BEE_NEST))) {

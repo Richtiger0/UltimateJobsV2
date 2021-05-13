@@ -70,8 +70,8 @@ public class GuiBuilder {
 					}  else if(action.equalsIgnoreCase("COMMAND")) {
 						p.closeInventory();
 						
-						String command =cfg.getString(path2+"."+b+".Command").replaceAll("<id>", job);
-					 
+						String command =cfg.getString(path2+"."+b+".Command").replaceAll("<id>", plugin.getAPI().getConfigIdOfJob(job));
+				 
 						p.performCommand(command);
 						
 						return;

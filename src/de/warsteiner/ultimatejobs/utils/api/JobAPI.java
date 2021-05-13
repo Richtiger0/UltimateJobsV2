@@ -39,6 +39,13 @@ public class JobAPI {
 		return cfg.getStringList("Worlds").contains(world); 
 	}
 
+	public static boolean canWorkInRegion(Player p,String flag) {
+		if (Bukkit.getServer().getPluginManager().getPlugin("WorldGuard") != null) {
+			return WorldGuardManager.checkFlag(p.getLocation(), flag, p);
+		} else {
+			return true;
+		}
+	}
   
 	public int doubleToInt(Double d) {
 	    return d.intValue();

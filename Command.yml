@@ -28,6 +28,20 @@ Command:
     
     NoPermMessage: "<prefix> &cYou dont have permissions for this!"
     
+    Reload:
+    
+      Use: true
+      
+      Disabled: "<prefix> &cThis Command args is disabled!"
+    
+      Usage: "reload"
+ 
+      Permission: "ultimatejobs.command.reload"
+    
+      NoPermMessage: "<prefix> &cYou dont have permissions for this!"
+      
+      Reloaded: "<prefix> &aYou have reloaded UltimateJobs! :)" 
+    
     BlockInfo:
     
       Use: true
@@ -445,6 +459,7 @@ Command:
       - "&8« &m-------------&8[ &bUltimateJobs &8- &7Help &8- &b2 &8]&m-------------&r &8»"
       - "&7"
       - "&8| &b/Jobs admin blockinfo &8» &7See Details of the current looking Job"
+      - "&8| &b/Jobs admin reload &8» &7Reload the hole Plugin"
       - "&8| &b/Jobs admin addjob <name> <job> &8» &7Add Job to Player"
       - "&8| &b/Jobs admin remjob <name> <job> &8» &7Remove Job from Player"
       - "&8| &b/Jobs admin setlevel <name> <job> <level> &8» &7Set Level of Player"

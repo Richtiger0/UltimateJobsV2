@@ -12,6 +12,7 @@ import org.bukkit.event.entity.EntityDeathEvent;
 import de.warsteiner.ultimatejobs.UltimateJobs;
 import de.warsteiner.ultimatejobs.utils.Action;
 import de.warsteiner.ultimatejobs.utils.api.JobAPI;
+import de.warsteiner.ultimatejobs.utils.api.WorldGuardManager;
 
 public class ActionKillMob implements Listener {
 	
@@ -23,11 +24,18 @@ public class ActionKillMob implements Listener {
 			  
 			 EntityType ent_type = event.getEntity().getType();
 			 
+			 
+			 
  
     if(event.getEntity().getKiller() != null) {
+    	
+    	
 		 Player killer = event.getEntity().getKiller();
 		 String UUID = ""+killer.getUniqueId(); 
-		 
+		
+		 if(!api.canWorkInRegion(killer, "action-killmob")) {
+		 		return;
+		 	}
  
 			String world = killer.getLocation().getWorld().getName();
 			 

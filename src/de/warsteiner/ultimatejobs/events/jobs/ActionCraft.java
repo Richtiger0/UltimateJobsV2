@@ -11,6 +11,7 @@ import org.bukkit.event.inventory.CraftItemEvent;
 import de.warsteiner.ultimatejobs.UltimateJobs;
 import de.warsteiner.ultimatejobs.utils.Action;
 import de.warsteiner.ultimatejobs.utils.api.JobAPI;
+import de.warsteiner.ultimatejobs.utils.api.WorldGuardManager;
 
 public class ActionCraft implements Listener {
 
@@ -24,6 +25,10 @@ public class ActionCraft implements Listener {
 	 	if (event.isCancelled()) {
 		 return;
 		 }
+	 	
+	 	if(!api.canWorkInRegion(player, "action-craft")) {
+	 		return;
+	 	}
 	 	 
 	 	Material block = event.getInventory().getResult().getType();
 	 	int amount = event.getInventory().getResult().getAmount(); 

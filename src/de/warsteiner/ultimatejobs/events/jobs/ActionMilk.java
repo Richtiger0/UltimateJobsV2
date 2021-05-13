@@ -15,6 +15,7 @@ import org.bukkit.inventory.ItemStack;
 import de.warsteiner.ultimatejobs.UltimateJobs;
 import de.warsteiner.ultimatejobs.utils.Action;
 import de.warsteiner.ultimatejobs.utils.api.JobAPI;
+import de.warsteiner.ultimatejobs.utils.api.WorldGuardManager;
  
 public class ActionMilk implements Listener {
 	
@@ -40,6 +41,9 @@ public class ActionMilk implements Listener {
 				  return; 
 			   }
   
+			   if(!api.canWorkInRegion(player, "action-milk")) {
+			 		return;
+			 	}
  
 				  ItemStack item = event.getPlayer().getItemInHand();
   

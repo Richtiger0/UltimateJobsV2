@@ -12,6 +12,7 @@ import org.bukkit.event.block.BlockPlaceEvent;
 import de.warsteiner.ultimatejobs.UltimateJobs;
 import de.warsteiner.ultimatejobs.utils.Action;
 import de.warsteiner.ultimatejobs.utils.api.JobAPI;
+import de.warsteiner.ultimatejobs.utils.api.WorldGuardManager;
 
 public class ActionBlockPlace implements Listener {
 
@@ -27,6 +28,10 @@ public class ActionBlockPlace implements Listener {
 		if(event.isCancelled()) {
 			return;
 		}
+		
+		if(!api.canWorkInRegion(player, "action-place")) {
+	 		return;
+	 	}
 		
 		String world = player.getLocation().getWorld().getName();
 		 

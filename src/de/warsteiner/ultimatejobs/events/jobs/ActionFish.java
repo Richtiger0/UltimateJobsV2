@@ -10,6 +10,7 @@ import org.bukkit.event.player.PlayerFishEvent;
 import de.warsteiner.ultimatejobs.UltimateJobs;
 import de.warsteiner.ultimatejobs.utils.Action;
 import de.warsteiner.ultimatejobs.utils.api.JobAPI;
+import de.warsteiner.ultimatejobs.utils.api.WorldGuardManager;
 
 public class ActionFish implements Listener {
 	
@@ -24,6 +25,10 @@ public class ActionFish implements Listener {
 		if (event.isCancelled()) {
 		 return;
 		 }
+		
+		if(!api.canWorkInRegion(player, "action-fish")) {
+	 		return;
+	 	}
  
 	if (event.getCaught() != null) {
 	 

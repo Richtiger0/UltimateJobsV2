@@ -232,7 +232,7 @@ Options_Custom_Items:
     
     Action: "COMMAND"
     
-    Command: "/jobs info <id>"
+    Command: "jobs info <id>"
     
     ItemFlags:
       - "HIDE_ATTRIBUTES"

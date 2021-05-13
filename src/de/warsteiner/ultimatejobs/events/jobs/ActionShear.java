@@ -12,6 +12,7 @@ import org.bukkit.event.player.PlayerShearEntityEvent;
 import de.warsteiner.ultimatejobs.UltimateJobs;
 import de.warsteiner.ultimatejobs.utils.Action;
 import de.warsteiner.ultimatejobs.utils.api.JobAPI;
+import de.warsteiner.ultimatejobs.utils.api.WorldGuardManager;
 
 public class ActionShear implements Listener {
 	
@@ -27,6 +28,10 @@ public class ActionShear implements Listener {
 			 return;
 			 }
 		
+	 	if(!api.canWorkInRegion(player, "action-shear")) {
+	 		return;
+	 	}
+	 	
 		if (event.getEntity() instanceof Sheep) {
 	    
 			 Sheep sheep = (Sheep)event.getEntity();

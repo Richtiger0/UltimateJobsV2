@@ -420,7 +420,36 @@ public class PlayerJobCommand implements CommandExecutor {
 														p.sendMessage(plugin.getAPI().toHex(m.replaceAll("<block>", ""+block.getType()).replaceAll("&", "§")));
 													}
 													
-									} else 	if(length == 4
+									} else 	if(length == 2
+											&& args[0].equalsIgnoreCase(cmd.getString("Command.Admin.Usage"))
+											&& args[1].equalsIgnoreCase(cmd.getString("Command.Admin.Reload.Usage"))) {
+
+												if(!cmd.getBoolean("Command.Admin.Use")) {
+												p.sendMessage(plugin.getAPI().toHex(cmd.getString("Command.Admin.Disabled").replaceAll("<prefix>", prefix).replaceAll("&", "§")));
+												return true;
+												}
+												
+												if(!p.hasPermission(cmd.getString("Command.Admin.Permission"))) {
+												p.sendMessage(plugin.getAPI().toHex(cmd.getString("Command.Admin.NoPermMessage").replaceAll("<prefix>", prefix).replaceAll("&", "§")));
+												return true;
+												}
+												
+												if(!cmd.getBoolean("Command.Admin.Reload.Use")) {
+													p.sendMessage(plugin.getAPI().toHex(cmd.getString("Command.Admin.Reload.Disabled").replaceAll("<prefix>", prefix).replaceAll("&", "§")));
+													return true;
+													}
+													
+													if(!p.hasPermission(cmd.getString("Command.Admin.Reload.Permission"))) {
+													p.sendMessage(plugin.getAPI().toHex(cmd.getString("Command.Admin.Reload.NoPermMessage").replaceAll("<prefix>", prefix).replaceAll("&", "§")));
+													return true;
+													}
+													plugin.load();
+												 
+														p.sendMessage(plugin.getAPI().toHex(cmd.getString("Command.Admin.Reload.Reloaded").replaceAll("<prefix>", prefix).replaceAll("&", "§")));
+														return true;
+												 
+													
+									}else 	if(length == 4
 											&& args[0].equalsIgnoreCase(cmd.getString("Command.Admin.Usage"))
 											&& args[1].equalsIgnoreCase(cmd.getString("Command.Admin.AddJob.Usage")
 													)) {

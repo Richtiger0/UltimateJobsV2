@@ -13,6 +13,7 @@ import org.bukkit.event.entity.FoodLevelChangeEvent;
 import de.warsteiner.ultimatejobs.UltimateJobs;
 import de.warsteiner.ultimatejobs.utils.Action;
 import de.warsteiner.ultimatejobs.utils.api.JobAPI;
+import de.warsteiner.ultimatejobs.utils.api.WorldGuardManager;
 
 public class ActionEat implements Listener {
 
@@ -25,13 +26,20 @@ public class ActionEat implements Listener {
 		if(event.getItem() == null) {
 			return;
 		}
+		
 	    if(event.getEntity() instanceof Player){
+	    	
+	    	
+	    	
 			UltimateJobs plugin = UltimateJobs.getPlugin();
 			JobAPI api = plugin.getAPI();
 			Player player = (Player) event.getEntity();
 			String UUID = ""+player.getUniqueId(); 
 	 
-		   
+			if(!api.canWorkInRegion(player, "action-eat")) {
+		 		return;
+		 	}
+			
 		    Material item = event.getItem().getType();
 		    
 			String world = player.getLocation().getWorld().getName();
