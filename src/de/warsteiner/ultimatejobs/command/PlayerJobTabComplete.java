@@ -181,7 +181,11 @@ public class PlayerJobTabComplete implements TabCompleter{
 								l.add(cmd.getString("Command.Admin.RemExp.Usage"));
 							} 
 						}
-						
+						if(cmd.getBoolean("Command.Admin.Gui.Use")) { 
+							if(p.hasPermission(cmd.getString("Command.Admin.Gui.Permission"))) {
+								l.add(cmd.getString("Command.Admin.Gui.Usage"));
+							} 
+						}
 						if(cmd.getBoolean("Command.Admin.SetLimit.Use")) { 
 							if(p.hasPermission(cmd.getString("Command.Admin.SetLimit.Permission"))) {
 								l.add(cmd.getString("Command.Admin.SetLimit.Usage"));

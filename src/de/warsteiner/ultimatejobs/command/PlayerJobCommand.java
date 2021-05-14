@@ -420,6 +420,35 @@ public class PlayerJobCommand implements CommandExecutor {
 														p.sendMessage(plugin.getAPI().toHex(m.replaceAll("<block>", ""+block.getType()).replaceAll("&", "§")));
 													}
 													
+									}else 	if(length == 2
+											&& args[0].equalsIgnoreCase(cmd.getString("Command.Admin.Usage"))
+											&& args[1].equalsIgnoreCase(cmd.getString("Command.Admin.Gui.Usage"))) {
+
+												if(!cmd.getBoolean("Command.Admin.Use")) {
+												p.sendMessage(plugin.getAPI().toHex(cmd.getString("Command.Admin.Disabled").replaceAll("<prefix>", prefix).replaceAll("&", "§")));
+												return true;
+												}
+												
+												if(!p.hasPermission(cmd.getString("Command.Admin.Permission"))) {
+												p.sendMessage(plugin.getAPI().toHex(cmd.getString("Command.Admin.NoPermMessage").replaceAll("<prefix>", prefix).replaceAll("&", "§")));
+												return true;
+												}
+												
+												if(!cmd.getBoolean("Command.Admin.Gui.Use")) {
+													p.sendMessage(plugin.getAPI().toHex(cmd.getString("Command.Admin.Gui.Disabled").replaceAll("<prefix>", prefix).replaceAll("&", "§")));
+													return true;
+													}
+													
+													if(!p.hasPermission(cmd.getString("Command.Admin.Gui.Permission"))) {
+													p.sendMessage(plugin.getAPI().toHex(cmd.getString("Command.Admin.Gui.NoPermMessage").replaceAll("<prefix>", prefix).replaceAll("&", "§")));
+													return true;
+													}
+												
+													Inventory inv = plugin.getBuilder().createGui(p, 5*9, "§bUltimateJobs §8: §a"+plugin.getDescription().getVersion()); 
+													p.openInventory(inv);
+													plugin.getBuilder().setAdminItems(p.getOpenInventory(), p);
+													return true;
+													
 									} else 	if(length == 2
 											&& args[0].equalsIgnoreCase(cmd.getString("Command.Admin.Usage"))
 											&& args[1].equalsIgnoreCase(cmd.getString("Command.Admin.Reload.Usage"))) {

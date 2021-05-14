@@ -8,6 +8,7 @@ import org.bukkit.Material;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
+import org.bukkit.event.inventory.InventoryType;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.InventoryView;
 import org.bukkit.inventory.ItemFlag;
@@ -25,16 +26,7 @@ public class GuiBuilder {
 		final Inventory inv = Bukkit.createInventory(null, size, UltimateJobs.getAPI().toHex(name).replaceAll("&", "§"));
 		return inv;
 	}
-	
-	public void createOptionsItems(Player p, String job) {
-		
-		UltimateJobs plugin = UltimateJobs.getPlugin();
-		YamlConfiguration ms = plugin.getTranslation();
-		
-		
-		
-	}
-	
+ 
 	public void runAction(Player p, String display, YamlConfiguration cfg, String path, String path2, String job) {
 			List<String> custom_items = cfg.getStringList(path);
 			UltimateJobs plugin = UltimateJobs.getPlugin();
@@ -106,6 +98,72 @@ public class GuiBuilder {
 				} 
 			}
 	}
+  
+	public void setAdminItems(InventoryView inventory, Player p) {
+		
+		ArrayList<String> list = new ArrayList<String>();
+		
+		list.add("BLACK_STAINED_GLASS_PANE:0:&7");
+		list.add("BLACK_STAINED_GLASS_PANE:1:&7");
+		list.add("BLACK_STAINED_GLASS_PANE:2:&7");
+		list.add("BLACK_STAINED_GLASS_PANE:3:&7");
+		list.add("BLACK_STAINED_GLASS_PANE:4:&7");
+		list.add("BLACK_STAINED_GLASS_PANE:5:&7");
+		list.add("BLACK_STAINED_GLASS_PANE:6:&7");
+		list.add("BLACK_STAINED_GLASS_PANE:7:&7");
+		list.add("BLACK_STAINED_GLASS_PANE:8:&7");
+		list.add("BLACK_STAINED_GLASS_PANE:9:&7");
+		list.add("BLACK_STAINED_GLASS_PANE:17:&7");
+		list.add("BLACK_STAINED_GLASS_PANE:18:&7");
+		list.add("BLACK_STAINED_GLASS_PANE:26:&7");
+		list.add("BLACK_STAINED_GLASS_PANE:27:&7");
+		list.add("BLACK_STAINED_GLASS_PANE:35:&7");
+		list.add("BLACK_STAINED_GLASS_PANE:36:&7");
+		list.add("BLACK_STAINED_GLASS_PANE:37:&7");
+		list.add("BLACK_STAINED_GLASS_PANE:38:&7");
+		list.add("BLACK_STAINED_GLASS_PANE:39:&7");
+		list.add("BLACK_STAINED_GLASS_PANE:40:&7");
+		list.add("BLACK_STAINED_GLASS_PANE:41:&7");
+		list.add("BLACK_STAINED_GLASS_PANE:42:&7");
+		list.add("BLACK_STAINED_GLASS_PANE:43:&7");
+		list.add("BLACK_STAINED_GLASS_PANE:44:&7");
+	 
+		setPlaceHolderItems(inventory, p, list);
+		
+		new BukkitRunnable() {
+			
+			@Override
+			public void run() {
+				
+				new BukkitRunnable() {
+
+					@Override
+					public void run() {
+						if(inventory.getItem(21) == null) {
+							ItemStack item = createItemStack(p, "GREEN_DYE");
+							ItemMeta meta = item.getItemMeta();
+							meta.setDisplayName("§8< §aCreate new Job §8>");
+						 
+							item.setItemMeta(meta);
+					  
+							inventory.setItem(21, item);
+					 } 
+					 if(inventory.getItem(23) == null) {
+							ItemStack item = createItemStack(p, "BOOK");
+							ItemMeta meta = item.getItemMeta();
+							meta.setDisplayName("§8< §fManage existing Jobs §8>");
+						 
+							item.setItemMeta(meta);
+					  
+							inventory.setItem(23, item);
+					 }
+					}
+					
+				}.runTaskLater(UltimateJobs.getPlugin(), 2);
+			     
+			}
+		}.runTaskAsynchronously(UltimateJobs.getPlugin()); 
+	}
 	
 	public void setPlaceHolderItems(InventoryView inventory, Player p, List<String> list) {
 		 
@@ -142,57 +200,64 @@ public class GuiBuilder {
 			
 			@Override
 			public void run() {
-  
-				List<String> used = config.getStringList(path3);
 				 
-				for(String i : used) {
-					String path = path2+"."+i+".";
+				new BukkitRunnable() {
 					
-					String display =  plugin.getAPI().toHex(config.getString(path+"Display"));
-					String icon =  config.getString(path+"Icon");
-					boolean show =  config.getBoolean(path+"Show_Only_If_InJob");
-					boolean enchanted =  config.getBoolean(path+"Enchanted");
-					List<String> flags =  config.getStringList(path+"ItemFlags");
-					int slot =  config.getInt(path+"Slot");
-					List<String> lore =  config.getStringList(path+"Lore");
-					ArrayList<String> list = new ArrayList<String>();
-					
-					ItemStack item = createItemStack(p, icon);
-					ItemMeta meta = item.getItemMeta();
-					meta.setDisplayName(display.replaceAll("&", "§"));
-					
-					if(enchanted) {
-						meta.addEnchant(Enchantment.ARROW_DAMAGE, 1, false);
-					}
+					@Override
+					public void run() {
+		  
+						List<String> used = config.getStringList(path3);
+						 
+						for(String i : used) {
+							String path = path2+"."+i+".";
+							
+							String display =  plugin.getAPI().toHex(config.getString(path+"Display"));
+							String icon =  config.getString(path+"Icon");
+							boolean show =  config.getBoolean(path+"Show_Only_If_InJob");
+							boolean enchanted =  config.getBoolean(path+"Enchanted");
+							List<String> flags =  config.getStringList(path+"ItemFlags");
+							int slot =  config.getInt(path+"Slot");
+							List<String> lore =  config.getStringList(path+"Lore");
+							ArrayList<String> list = new ArrayList<String>();
+							
+							ItemStack item = createItemStack(p, icon);
+							ItemMeta meta = item.getItemMeta();
+							meta.setDisplayName(display.replaceAll("&", "§"));
+							
+							if(enchanted) {
+								meta.addEnchant(Enchantment.ARROW_DAMAGE, 1, false);
+							}
+						 
+							for(String f : flags) {
+								meta.addItemFlags(ItemFlag.valueOf(f));
+							}
 				 
-					for(String f : flags) {
-						meta.addItemFlags(ItemFlag.valueOf(f));
-					}
-		 
-					for(String l : lore) {
-						list.add(plugin.getAPI().toHex(l).replaceAll("<jobs>", plugin.getAPI().getJobInDisplay(""+p.getUniqueId())).replaceAll("&", "§"));
-					}
-					meta.setLore(list);
-					item.setItemMeta(meta);
-			 
-					boolean b = true;
-					
-					if(show) {
-						 if(plugin.getPlayerAPI().getCurrentJobs(""+p.getUniqueId()).size() == 0) {
-							 b = false;
-						 }
-					}
+							for(String l : lore) {
+								list.add(plugin.getAPI().toHex(l).replaceAll("<jobs>", plugin.getAPI().getJobInDisplay(""+p.getUniqueId())).replaceAll("&", "§"));
+							}
+							meta.setLore(list);
+							item.setItemMeta(meta);
 					 
+							boolean b = true;
+							
+							if(show) {
+								 if(plugin.getPlayerAPI().getCurrentJobs(""+p.getUniqueId()).size() == 0) {
+									 b = false;
+								 }
+							}
+							 
 
-					if(b) {
-						inventory.setItem(slot, null);
-						inventory.setItem(slot, item);
+							if(b) {
+								inventory.setItem(slot, null);
+								inventory.setItem(slot, item);
+							}
+							 
+						}
+						
 					}
-					 
-				}
-				
+				}.runTaskAsynchronously(plugin); 
 			}
-		}.runTaskAsynchronously(UltimateJobs.getPlugin()); 
+		}.runTaskLater(plugin, 2);
 	}
 	
 	public void setJobsItems(InventoryView inventory, Player p) {

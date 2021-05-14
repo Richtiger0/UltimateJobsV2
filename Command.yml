@@ -28,6 +28,18 @@ Command:
     
     NoPermMessage: "<prefix> &cYou dont have permissions for this!"
     
+    Gui:
+    
+      Use: true
+      
+      Disabled: "<prefix> &cThis Command args is disabled!"
+    
+      Usage: "gui"
+ 
+      Permission: "ultimatejobs.command.gui"
+    
+      NoPermMessage: "<prefix> &cYou dont have permissions for this!"
+        
     Reload:
     
       Use: true

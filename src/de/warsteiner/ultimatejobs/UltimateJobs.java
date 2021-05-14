@@ -16,6 +16,8 @@ import de.warsteiner.ultimatejobs.command.PlayerJobTabComplete;
 import de.warsteiner.ultimatejobs.events.PlayerBlockPlaceEventAddFlag;
 import de.warsteiner.ultimatejobs.events.PlayerExistEvent;
 import de.warsteiner.ultimatejobs.events.PlayerLevelCheckEvent;
+import de.warsteiner.ultimatejobs.events.PlayerSetupJob;
+import de.warsteiner.ultimatejobs.events.gui.PlayerClickAtAdminInventory;
 import de.warsteiner.ultimatejobs.events.gui.PlayerClickAtMainInventory;
 import de.warsteiner.ultimatejobs.events.gui.PlayerClickAtOptionsInventory;
 import de.warsteiner.ultimatejobs.events.jobs.ActionBlockBreak;
@@ -120,6 +122,8 @@ public class UltimateJobs extends JavaPlugin {
 		Bukkit.getPluginManager().registerEvents(new PlayerClickAtMainInventory(), this);
 		Bukkit.getPluginManager().registerEvents(new PlayerClickAtOptionsInventory(), this);
 		Bukkit.getPluginManager().registerEvents(new PlayerLevelCheckEvent(), this);
+		Bukkit.getPluginManager().registerEvents(new PlayerClickAtAdminInventory(), this);
+		Bukkit.getPluginManager().registerEvents(new PlayerSetupJob(), this);
 
 		getCommand("jobs").setExecutor(new PlayerJobCommand());
 
