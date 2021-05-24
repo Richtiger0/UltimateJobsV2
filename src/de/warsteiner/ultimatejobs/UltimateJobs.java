@@ -90,8 +90,16 @@ public class UltimateJobs extends JavaPlugin {
 		player = new PlayerAPI();
 		lapi = new LevelAPI();
 		rewards = new RewardAPI();
-		
+ 
 		actions.add("BREAK");
+		actions.add("PLACE");
+		actions.add("KILL_MOB");
+		actions.add("FISH");
+		actions.add("MILK");
+		actions.add("HONEY");
+		actions.add("EAT");
+		actions.add("SHEAR");
+		actions.add("CRAFT"); 
 
 		setupEconomy();
 

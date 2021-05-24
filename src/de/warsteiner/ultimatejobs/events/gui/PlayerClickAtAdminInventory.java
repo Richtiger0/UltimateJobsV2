@@ -59,7 +59,7 @@ public class PlayerClickAtAdminInventory implements Listener  {
 			   p.closeInventory();
 			   SetUpManager.startStep(p, 1, true);
 			} else if(display.equalsIgnoreCase("§8< §fManage existing Jobs §8>")) {
-				p.sendMessage("manahe jobs");
+				p.sendMessage("§cThis feature is currently in work!");
 			}
 		}
 		
