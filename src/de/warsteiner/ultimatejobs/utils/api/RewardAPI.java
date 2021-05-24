@@ -41,7 +41,7 @@ public class RewardAPI {
  
 		String jobname = plugin.getAPI().getJobDisplay(job);
 		String jobneed = plugin.getLevelAPI().getJobNeedExp(""+player.getUniqueId(), job);
-		double jobexp = plugin.getPlayerAPI().getJobExp(""+player.getUniqueId(), job);
+		String jobexp = plugin.getAPI().FormatAsExp(plugin.getPlayerAPI().getJobExp(""+player.getUniqueId(), job));
 		int joblevel = plugin.getPlayerAPI().getJobLevel(""+player.getUniqueId(), job);
 		String levelname = plugin.getLevelAPI().getDisPlayOfLevel(""+player.getUniqueId(), job, joblevel);
 		

@@ -10,6 +10,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 
 import de.warsteiner.ultimatejobs.UltimateJobs;
+import de.warsteiner.ultimatejobs.utils.Action;
 import de.warsteiner.ultimatejobs.utils.api.other.SetUpManager;
 
 public class PlayerSetupJob implements Listener {
@@ -63,6 +64,17 @@ public class PlayerSetupJob implements Listener {
 					SetUpManager.startStep(p, 2, false);
 					return;
 				} 
+			} else if(step == 2) {
+				
+				String action = mg.toUpperCase();
+				
+				if(!plugin.actions.contains(action)) {
+					String m = tr.getString("Translation.Prefix")
+							  + " §cThat action doesnt action!";
+					  p.sendMessage(plugin.getAPI().toHex(m).replaceAll("&", "§"));   
+					return;
+				}
+				
 			}
 			
 			Bukkit.broadcastMessage(""+gb);
@@ -72,3 +84,18 @@ public class PlayerSetupJob implements Listener {
 	}
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

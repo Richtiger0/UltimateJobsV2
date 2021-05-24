@@ -29,6 +29,7 @@ import de.warsteiner.ultimatejobs.events.jobs.ActionHoney;
 import de.warsteiner.ultimatejobs.events.jobs.ActionKillMob;
 import de.warsteiner.ultimatejobs.events.jobs.ActionMilk;
 import de.warsteiner.ultimatejobs.events.jobs.ActionShear;
+import de.warsteiner.ultimatejobs.utils.Action;
 import de.warsteiner.ultimatejobs.utils.Metrics;
 import de.warsteiner.ultimatejobs.utils.api.JobAPI;
 import de.warsteiner.ultimatejobs.utils.api.LevelAPI;
@@ -54,6 +55,8 @@ public class UltimateJobs extends JavaPlugin {
 	private static LevelAPI lapi;
 	private static RewardAPI rewards;
 	private static YamlConfiguration cmd;
+	
+	public static ArrayList<String> actions = new ArrayList<String>();
 
 	@Override
 	public void onLoad() {
@@ -87,6 +90,8 @@ public class UltimateJobs extends JavaPlugin {
 		player = new PlayerAPI();
 		lapi = new LevelAPI();
 		rewards = new RewardAPI();
+		
+		actions.add("BREAK");
 
 		setupEconomy();
 
