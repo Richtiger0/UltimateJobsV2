@@ -29,6 +29,14 @@ Translation:
   Joined: " &7You joined the Job <job>&7!"
   
   TooManyJobs: " &cYou are currently in too many jobs!"
+ 
+PlaceHolder:
+
+  No_Job: "§cNo Job"
+  
+  No_Level: "§cNo Level Found"
+  
+  No_Exp: "§cNo Exp found"
   
 Levels:
 

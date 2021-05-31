@@ -48,7 +48,7 @@ public class PlayerLevelCheckEvent implements Listener {
 				  
 					String rmode = levels.getJobLevelUpRewardType(""+p.getUniqueId(), job).toUpperCase();
 					
-					if(rmode.equalsIgnoreCase("COMMAND_MAP")) {
+					if(rmode.equalsIgnoreCase("COMMAND_LIST")) {
 						
 						List<String> list = levels.getRewardList(""+p.getUniqueId(), job);
 						

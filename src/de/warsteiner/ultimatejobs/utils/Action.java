@@ -10,6 +10,7 @@ public enum Action {
 	HONEY,
 	EAT,
 	SHEAR,
+	FARM,
 	CRAFT;
 
 }
