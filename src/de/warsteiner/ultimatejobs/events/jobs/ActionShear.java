@@ -17,7 +17,7 @@ import de.warsteiner.ultimatejobs.utils.api.WorldGuardManager;
 public class ActionShear implements Listener {
 	
 	@EventHandler
-	 public void playerShearEvent(PlayerShearEntityEvent event) {
+	 public void onEvent(PlayerShearEntityEvent event) {
 		
 		UltimateJobs plugin = UltimateJobs.getPlugin();
 		JobAPI api = plugin.getAPI();

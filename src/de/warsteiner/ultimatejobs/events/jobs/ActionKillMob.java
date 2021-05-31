@@ -17,7 +17,7 @@ import de.warsteiner.ultimatejobs.utils.api.WorldGuardManager;
 public class ActionKillMob implements Listener {
 	
 	 @EventHandler
-	 public void onKill(EntityDeathEvent event) {
+	 public void onEvent(EntityDeathEvent event) {
 	 
 			UltimateJobs plugin = UltimateJobs.getPlugin();
 			JobAPI api = plugin.getAPI(); 

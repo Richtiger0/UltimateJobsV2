@@ -20,7 +20,7 @@ import de.warsteiner.ultimatejobs.utils.api.WorldGuardManager;
 public class ActionMilk implements Listener {
 	
 	@EventHandler
-	public void onIt(PlayerInteractAtEntityEvent event) {
+	public void onEvent(PlayerInteractAtEntityEvent event) {
 		Entity clicked = event.getRightClicked();
 		
 		UltimateJobs plugin = UltimateJobs.getPlugin();

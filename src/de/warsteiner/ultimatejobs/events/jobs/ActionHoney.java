@@ -20,7 +20,7 @@ import de.warsteiner.ultimatejobs.utils.api.WorldGuardManager;
 public class ActionHoney implements Listener {
 
 	  @EventHandler
-	  public void onBreak(PlayerInteractEvent event) {
+	  public void onEvent(PlayerInteractEvent event) {
 	 	if (event.isCancelled()) {
 		 return;
 		 }

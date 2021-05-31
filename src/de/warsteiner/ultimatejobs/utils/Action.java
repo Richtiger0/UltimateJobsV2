@@ -11,6 +11,7 @@ public enum Action {
 	EAT,
 	SHEAR,
 	FARM,
+	ENCHANT,
 	CRAFT;
 
 }

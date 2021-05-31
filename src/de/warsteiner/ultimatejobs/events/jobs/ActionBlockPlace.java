@@ -17,7 +17,7 @@ import de.warsteiner.ultimatejobs.utils.api.WorldGuardManager;
 public class ActionBlockPlace implements Listener {
 
 	@EventHandler
-	public void onBreak(BlockPlaceEvent event) { 
+	public void onEvent(BlockPlaceEvent event) { 
 		UltimateJobs plugin = UltimateJobs.getPlugin();
 		JobAPI api = plugin.getAPI();
 		Player player = event.getPlayer();

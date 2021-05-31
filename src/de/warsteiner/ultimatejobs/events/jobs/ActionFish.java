@@ -15,7 +15,7 @@ import de.warsteiner.ultimatejobs.utils.api.WorldGuardManager;
 public class ActionFish implements Listener {
 	
 	@EventHandler
-	public void onFish(PlayerFishEvent event) {
+	public void onEvent(PlayerFishEvent event) {
 		
 		UltimateJobs plugin = UltimateJobs.getPlugin();
 		JobAPI api = plugin.getAPI();

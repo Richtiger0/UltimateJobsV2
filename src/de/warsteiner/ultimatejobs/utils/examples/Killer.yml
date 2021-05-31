@@ -20,6 +20,9 @@ ItemFlag:
 
 Worlds:
   - "world"
+  
+Description:
+  - "&7Kill some bad mobs!"
 
 Translation:
 

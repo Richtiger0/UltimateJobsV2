@@ -20,7 +20,7 @@ import de.warsteiner.ultimatejobs.utils.api.JobAPI;
 public class ActionFarm implements Listener {
 
 	@EventHandler
-	public void onBreak(BlockBreakEvent event) { 
+	public void onEvent(BlockBreakEvent event) { 
 		UltimateJobs plugin = UltimateJobs.getPlugin();
 		JobAPI api = plugin.getAPI();
 		Player player = event.getPlayer();

@@ -2,38 +2,33 @@ package de.warsteiner.ultimatejobs.events.jobs;
 
 import java.util.ArrayList;
 
-import org.bukkit.Bukkit;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
-import org.bukkit.event.block.BlockBreakEvent;
+import org.bukkit.event.enchantment.EnchantItemEvent;
+import org.bukkit.inventory.ItemStack;
 
 import de.warsteiner.ultimatejobs.UltimateJobs;
 import de.warsteiner.ultimatejobs.utils.Action;
 import de.warsteiner.ultimatejobs.utils.api.JobAPI;
-import de.warsteiner.ultimatejobs.utils.api.WorldGuardManager; 
 
-public class ActionBlockBreak implements Listener {
+public class ActionEnchant implements Listener {
 
 	@EventHandler
-	public void onEvent(BlockBreakEvent event) { 
+	public void onEvent(EnchantItemEvent  event) {
 		UltimateJobs plugin = UltimateJobs.getPlugin();
 		JobAPI api = plugin.getAPI();
-		Player player = event.getPlayer();
+		Player player = event.getEnchanter();
 		String UUID = ""+player.getUniqueId(); 
-		Block block = event.getBlock();
+		ItemStack block = event.getItem();
 		
 		
 		if(event.isCancelled()) {
 			return;
 		}
-		
-	 	if(block.hasMetadata("placed-by-player")) {
-		 	return;
-	 	}
-	  
-	 	if(!api.canWorkInRegion(player, "action-break")) {
+		 
+	 	if(!api.canWorkInRegion(player, "action-enchant")) {
 	 		return;
 	 	}
 	 	

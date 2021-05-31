@@ -24,6 +24,7 @@ import de.warsteiner.ultimatejobs.events.jobs.ActionBlockBreak;
 import de.warsteiner.ultimatejobs.events.jobs.ActionBlockPlace;
 import de.warsteiner.ultimatejobs.events.jobs.ActionCraft;
 import de.warsteiner.ultimatejobs.events.jobs.ActionEat;
+import de.warsteiner.ultimatejobs.events.jobs.ActionEnchant;
 import de.warsteiner.ultimatejobs.events.jobs.ActionFarm;
 import de.warsteiner.ultimatejobs.events.jobs.ActionFish;
 import de.warsteiner.ultimatejobs.events.jobs.ActionHoney;
@@ -74,6 +75,8 @@ public class UltimateJobs extends JavaPlugin {
 		list.add("action-eat");
 		list.add("action-shear");
 		list.add("action-craft");
+		list.add("action-farm");
+		list.add("action-enchant");
 
 		if (getServer().getPluginManager().getPlugin("WorldGuard") != null) {
 			WorldGuardManager.load(list);
@@ -103,6 +106,7 @@ public class UltimateJobs extends JavaPlugin {
 		actions.add("SHEAR");
 		actions.add("CRAFT"); 
 		actions.add("FARM"); 
+		actions.add("ENCHANT"); 
 
 		setupEconomy();
 
@@ -131,6 +135,7 @@ public class UltimateJobs extends JavaPlugin {
 		Bukkit.getPluginManager().registerEvents(new ActionShear(), this);
 		Bukkit.getPluginManager().registerEvents(new ActionCraft(), this);
 		Bukkit.getPluginManager().registerEvents(new ActionFarm(), this);
+		Bukkit.getPluginManager().registerEvents(new ActionEnchant(), this);
 
 		Bukkit.getPluginManager().registerEvents(new PlayerBlockPlaceEventAddFlag(), this);
 		// other events

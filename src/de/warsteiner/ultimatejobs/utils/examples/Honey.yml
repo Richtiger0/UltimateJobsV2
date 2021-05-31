@@ -21,6 +21,9 @@ ItemFlag:
 Worlds:
   - "world"
 
+Description:
+  - "&7Fill some Honey Bottles!"
+
 Translation:
 
   Stats_Part_1: "Honey Bottles"

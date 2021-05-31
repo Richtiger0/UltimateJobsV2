@@ -271,6 +271,8 @@ public class GuiBuilder {
 				
 				for(String job : jobs) {
 					
+					YamlConfiguration cfg = plugin.getAPI().getConfigOfJob(job.toUpperCase());
+					
 					String display = plugin.getAPI().getJobDisplay(job);
 					int slot = plugin.getAPI().getSlotOfJob(job);
 					String price = plugin.getAPI().getJobPrice(job);
@@ -312,6 +314,14 @@ public class GuiBuilder {
 					 }
 					
 					String levelname = plugin.getLevelAPI().getDisPlayOfLevel(""+p.getUniqueId(), job, level);
+					
+					if(cfg.contains("Description")) {
+						
+						List<String> desc = cfg.getStringList("Description");
+						for(String de : desc) {
+							list.add(plugin.getAPI().toHex(de).replaceAll("&", "§"));
+						}
+					}
 					
 					for(String i : lore) {
 						list.add(plugin.getAPI().toHex(i).replaceAll("<level_as_name>", levelname).replaceAll("<need>", needasstring).replaceAll("<exp>", expasstring).replaceAll("<level_as_int>", ""+level).replaceAll("<price>", ""+price).replaceAll("&", "§"));

@@ -16,7 +16,7 @@ import de.warsteiner.ultimatejobs.utils.api.WorldGuardManager;
 public class ActionCraft implements Listener {
 
 	@EventHandler
-	public void onBreak(CraftItemEvent event) {
+	public void onEvent(CraftItemEvent event) {
 		UltimateJobs plugin = UltimateJobs.getPlugin();
 		JobAPI api = plugin.getAPI();
 		Player player = (Player) event.getWhoClicked();

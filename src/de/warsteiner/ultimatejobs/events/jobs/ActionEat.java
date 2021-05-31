@@ -18,7 +18,7 @@ import de.warsteiner.ultimatejobs.utils.api.WorldGuardManager;
 public class ActionEat implements Listener {
 
 		@EventHandler
-	     public void onFoodChange(FoodLevelChangeEvent event){
+	     public void onEvent(FoodLevelChangeEvent event){
 		 
 		if(event.isCancelled()) {
 			 return;
