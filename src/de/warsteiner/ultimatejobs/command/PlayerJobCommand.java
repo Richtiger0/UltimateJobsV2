@@ -206,7 +206,32 @@ public class PlayerJobCommand implements CommandExecutor {
 	
 	sendHelp(p, cmd, Integer.parseInt(pg));
 	return true;
-} else 	if(length == 2
+}  else 	if(length == 2
+		&& args[0].equalsIgnoreCase(plugin.getLevelsGUIConfig().getString("Command.Usage"))
+		&& args[1] != null) {
+
+YamlConfiguration levelsgui = plugin.getLevelsGUIConfig();
+	
+		if(!levelsgui.getBoolean("Command.Use")) {
+		p.sendMessage(plugin.getAPI().toHex(levelsgui.getString("Command.Disabled").replaceAll("<prefix>", prefix).replaceAll("&", "§")));
+		return true;
+		}
+		
+		if(!p.hasPermission(levelsgui.getString("Command.Permission"))) {
+		p.sendMessage(plugin.getAPI().toHex(levelsgui.getString("Command.NoPermMessage").replaceAll("<prefix>", prefix).replaceAll("&", "§")));
+		return true;
+		}
+		 
+		String job = args[1];
+		
+		if(!plugin.getAPI().existJobWithConfigID(job)) {
+			p.sendMessage(plugin.getAPI().toHex(levelsgui.getString("Command.NoJob").replaceAll("<prefix>", prefix).replaceAll("&", "§")));
+			return true;
+		}
+
+ p.openInventory(plugin.getLevelsGUIAPI().get(p, job));
+return true;
+}  else 	if(length == 2
 		&& args[0].equalsIgnoreCase(cmd.getString("Command.Join.Usage"))
 		&& args[1] != null) {
 

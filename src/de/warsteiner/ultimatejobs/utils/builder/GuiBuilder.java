@@ -146,17 +146,8 @@ public class GuiBuilder {
 						 
 							item.setItemMeta(meta);
 					  
-							inventory.setItem(21, item);
-					 } 
-					 if(inventory.getItem(23) == null) {
-							ItemStack item = createItemStack(p, "BOOK");
-							ItemMeta meta = item.getItemMeta();
-							meta.setDisplayName("§8< §fManage existing Jobs §8>");
-						 
-							item.setItemMeta(meta);
-					  
-							inventory.setItem(23, item);
-					 }
+							inventory.setItem(22, item);
+					 }  
 					}
 					
 				}.runTaskLater(UltimateJobs.getPlugin(), 2);

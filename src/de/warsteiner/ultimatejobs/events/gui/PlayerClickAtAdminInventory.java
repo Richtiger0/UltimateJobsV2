@@ -1,5 +1,7 @@
 package de.warsteiner.ultimatejobs.events.gui;
 
+import java.util.List;
+
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
@@ -40,9 +42,7 @@ public class PlayerClickAtAdminInventory implements Listener  {
 	   
 	 Player p = (Player)e.getWhoClicked();
 
-	 UltimateJobs plugin = UltimateJobs.getPlugin();
-	 YamlConfiguration ms = plugin.getTranslation();
- 
+	 UltimateJobs plugin = UltimateJobs.getPlugin(); 
 	 String display = e.getCurrentItem().getItemMeta().getDisplayName();
 	  
 	if (e.getView().getTitle().contains("§bUltimateJobs")) {
@@ -58,11 +58,10 @@ public class PlayerClickAtAdminInventory implements Listener  {
 			if(display.equalsIgnoreCase("§8< §aCreate new Job §8>")) {
 			   p.closeInventory();
 			   SetUpManager.startStep(p, 1, true);
-			} else if(display.equalsIgnoreCase("§8< §fManage existing Jobs §8>")) {
-				p.sendMessage("§cThis feature is currently in work!");
 			}
 		}
 		
 	}
 	}
+	 
 }

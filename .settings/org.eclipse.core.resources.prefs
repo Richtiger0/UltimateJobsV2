@@ -2,6 +2,7 @@ eclipse.preferences.version=1
 encoding/Command.yml=UTF-8
 encoding/Jobs.yml=UTF-8
 encoding/JobsGUI.yml=UTF-8
+encoding/LevelsGUI.yml=UTF-8
 encoding/Main.yml=UTF-8
 encoding/Translation.yml=UTF-8
 encoding/Utils.yml=UTF-8

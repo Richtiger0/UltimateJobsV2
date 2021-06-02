@@ -499,6 +499,7 @@ Command:
       - "&8| &b/Jobs leaveall &8» &7Leave all Jobs"
       - "&8| &b/Jobs limit &8» &7Watch your Job limit" 
       - "&8| &b/Jobs stats <name> &8» &7Watch Job Stats" 
+      - "&8| &b/Jobs levels <job> &8» &7Watch Job Levels" 
       - "&7"
       - "&8« &m-------------&8[ &bUltimateJobs &8- &7Help &8- &b1 &8]&m-------------&r &8»"
       - "&7"

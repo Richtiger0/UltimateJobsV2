@@ -34,6 +34,7 @@ import de.warsteiner.ultimatejobs.events.jobs.ActionShear;
 import de.warsteiner.ultimatejobs.utils.Action;
 import de.warsteiner.ultimatejobs.utils.Metrics;
 import de.warsteiner.ultimatejobs.utils.PlaceHolder;
+import de.warsteiner.ultimatejobs.utils.addons.levelsgui.LevelsGUI;
 import de.warsteiner.ultimatejobs.utils.api.JobAPI;
 import de.warsteiner.ultimatejobs.utils.api.LevelAPI;
 import de.warsteiner.ultimatejobs.utils.api.PlayerAPI;
@@ -58,6 +59,8 @@ public class UltimateJobs extends JavaPlugin {
 	private static LevelAPI lapi;
 	private static RewardAPI rewards;
 	private static YamlConfiguration cmd;
+	private static YamlConfiguration levels;
+	private static LevelsGUI levelsguiapi;
 	
 	public static ArrayList<String> actions = new ArrayList<String>();
 
@@ -95,6 +98,7 @@ public class UltimateJobs extends JavaPlugin {
 		player = new PlayerAPI();
 		lapi = new LevelAPI();
 		rewards = new RewardAPI();
+		levelsguiapi = new LevelsGUI();
  
 		actions.add("BREAK");
 		actions.add("PLACE");
@@ -167,24 +171,51 @@ public class UltimateJobs extends JavaPlugin {
 		new Metrics(getPlugin(), 8753);
 	}
 	
+	public void loadModules() {
+		
+		File levelsfile;
+		
+		levelsfile = new File(UltimateJobs.getPlugin().getDataFolder(), "LevelsGUI.yml");
+
+		if (!levelsfile.exists()) {
+			levelsfile.getParentFile().mkdirs();
+			UltimateJobs.getPlugin().saveResource("LevelsGUI.yml", true);
+		}
+
+		levels = new YamlConfiguration();
+		try {
+			levels.load(levelsfile);
+		} catch (IOException | InvalidConfigurationException e) {
+			e.printStackTrace();
+		}
+		
+		if(levels.getBoolean("Use")) {
+			 System.out.println("§aLoaded LevelsGUI addon!");
+			//Bukkit.getPluginManager().registerEvents(new PlayerSetupJob(), this);
+		}
+		
+	}
+	
 	public void load() {
+		
+		loadModules();
+		
 		File joblist;
 		File jobgui;
 		File mainfile;
 		File trans;
-		File cmdfile;
+		File cmdfile; 
 
 		joblist = new File(UltimateJobs.getPlugin().getDataFolder(), "Jobs.yml");
 		jobgui = new File(UltimateJobs.getPlugin().getDataFolder(), "JobsGUI.yml");
 		mainfile = new File(UltimateJobs.getPlugin().getDataFolder(), "Main.yml");
 		trans = new File(UltimateJobs.getPlugin().getDataFolder(), "Translation.yml");
 		cmdfile = new File(UltimateJobs.getPlugin().getDataFolder(), "Command.yml");
-
+	  
 		if (!trans.exists()) {
 			trans.getParentFile().mkdirs();
 			UltimateJobs.getPlugin().saveResource("Translation.yml", true);
-		}
-
+		} 
 		translation = new YamlConfiguration();
 		try {
 			translation.load(trans);
@@ -254,11 +285,19 @@ public class UltimateJobs extends JavaPlugin {
 	public static LevelAPI getLevelAPI() {
 		return lapi;
 	}
+	
+	public static LevelsGUI getLevelsGUIAPI() {
+		return levelsguiapi;
+	}
 
 	public static YamlConfiguration getCommandConfig() {
 		return cmd;
 	}
-
+	
+	public static YamlConfiguration getLevelsGUIConfig() {
+		return levels;
+	}
+ 
 	public static RewardAPI getRewardAPI() {
 		return rewards;
 	}

@@ -28,7 +28,7 @@ public class PlayerJobTabComplete implements TabCompleter{
 		UltimateJobs plugin = UltimateJobs.getPlugin();
 		
 		YamlConfiguration tr = plugin.getTranslation();
-		
+		YamlConfiguration levelgui = plugin.getLevelsGUIConfig();
 		YamlConfiguration cmd = plugin.getCommandConfig();
 		
 		List<String> jobs = plugin.getPlayerAPI().getCurrentJobs(""+p.getUniqueId());
@@ -43,6 +43,11 @@ public class PlayerJobTabComplete implements TabCompleter{
 			if(cmd.getBoolean("Command.Help.Use")) {
 				if(p.hasPermission(cmd.getString("Command.Help.Permission"))) {
 					l.add(cmd.getString("Command.Help.Usage"));
+				}
+			} 
+			if(levelgui.getBoolean("Command.Use")) {
+				if(p.hasPermission(levelgui.getString("Command.Permission"))) {
+					l.add(levelgui.getString("Command.Usage"));
 				}
 			} 
 			if(cmd.getBoolean("Command.Limit.Use")) {
@@ -118,7 +123,16 @@ public class PlayerJobTabComplete implements TabCompleter{
 					}
 				}
 			}
-			
+			if(levelgui.getBoolean("Command.Use")) {
+				if(args[0].equalsIgnoreCase(	levelgui.getString("Command.Usage"))) {
+					if(p.hasPermission(levelgui.getString("Command.Permission"))) {
+						for(String pl : plugin.getAPI().getJobsWithConfigIDS()) {
+							l.add(pl);
+						}
+					}
+				}
+			} 
+		 
 			if(cmd.getBoolean("Command.Admin.Use")) {
 				if(args[0].equalsIgnoreCase(cmd.getString("Command.Admin.Usage"))) {
 					if(p.hasPermission(cmd.getString("Command.Admin.Permission"))) {
