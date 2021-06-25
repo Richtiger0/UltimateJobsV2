@@ -198,7 +198,7 @@ public class UltimateJobs extends JavaPlugin {
 	
 	public void load() {
 		
-		loadModules();
+		//loadModules();
 		
 		File joblist;
 		File jobgui;
