@@ -26,7 +26,7 @@ Command:
   
   NoJob: "<prefix> &7This job was not found!"
     
-Name: "&eMy Levels &8: <job> &8| &7<page>"
+Name: "&eMy Levels &8: <job> &8| &c#<page>"
 
 Size: 6
 

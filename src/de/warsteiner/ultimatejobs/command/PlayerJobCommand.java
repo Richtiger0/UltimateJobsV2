@@ -229,7 +229,7 @@ YamlConfiguration levelsgui = plugin.getLevelsGUIConfig();
 			return true;
 		}
 
- p.openInventory(plugin.getLevelsGUIAPI().get(p, job));
+ p.openInventory(plugin.getLevelsGUIAPI().get(p, job, 1));
 return true;
 }  else 	if(length == 2
 		&& args[0].equalsIgnoreCase(cmd.getString("Command.Join.Usage"))
