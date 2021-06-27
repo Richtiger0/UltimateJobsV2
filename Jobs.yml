@@ -16,7 +16,142 @@
 #
 
 Jobs: 
-  - "Miner" 
+Action: "BREAK"
+
+Display: "#2898FAMiner"
+
+ID: "Miner"
+ 
+Material: "IRON_PICKAXE"
+
+Slot: 10
+
+Price:
+
+  Mode: "VAULT"
+
+  Price: "25000"
+
+ItemFlag:
+  - "HIDE_ATTRIBUTES"
+  - "HIDE_ENCHANTS"
+
+Worlds:
+  - "world"
+  
+Description:
+  - "&7Break &bDiamonds&7!"
+
+Translation:
+
+  Stats_Part_1: "Destroyed Blocks"
+
+  Stats_Part_1_ID: "Blocks"
+
+IDS:
+
+  LIST:
+    - "STONE"
+    - "COBBLESTONE"
+    - "IRON_ORE" 
+
+  IRON_ORE: 
+
+    Display: "&bIron Ore"
+
+    Reward: 1.50
+
+    Exp: 2.50
+
+    Vanilla: 1
+
+    Points: 1
+
+    Chance: 80
+
+  COBBLESTONE: 
+
+    Display: "&bCobblestone"
+
+    Reward: 0.50
+
+    Exp: 2.50
+
+    Vanilla: 1
+
+    Points: 1
+
+    Chance: 80
+  
+  STONE: 
+
+    Display: "&bStone"
+
+    Reward: 0.50
+
+    Exp: 2.50
+
+    Vanilla: 1
+
+    Points: 1
+
+    Chance: 80
+ 
+Levels:
+
+  L1:
+  
+    Display: "&6Tier I"
+
+    Need: 200
+
+    Reward: "COMMAND_LIST"
+
+    Commands:
+      - "eco give <name> 100"
+
+  L2:
+  
+    Display: "&6Tier II"
+
+    Need: 300
+
+    Reward: "COMMAND_LIST"
+
+    Commands:
+      - "eco give <name> 200"
+
+  L3:
+  
+    Display: "&6Tier III"
+
+    Need: 400
+
+    Reward: "COMMAND_LIST"
+
+    Commands:
+      - "eco give <name> 300"
+
+  L4:
+  
+    Display: "&6Tier IV"
+
+    Need: 600
+
+    Reward: "COMMAND_LIST"
+
+    Commands:
+      - "eco give <name> 1000"
+
+  L5:
+  
+    Display: "&6Tier V &8- &cMax Level"
+
+    Need: Max
+ 
+
+    
+
 
 
   
